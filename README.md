@@ -14,7 +14,7 @@ Rate My Learning is an educational rating tool that will help students learn mor
   
 * **Marcus Rodrigues** - *Back end & Team lead*
 * **Fatima Kharodia** - *Front end & Design*
-* **Catherine Olejarczyk* - *Front end & Design*
+* **Catherine Olejarczyk** - *Front end & Design*
   
 ## License
   
