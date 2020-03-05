@@ -2,7 +2,150 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <div class="intro-text">
+                            <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
+                            <p class="lead text-dark mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
+                            <a href="reviews.html" class="btn text-white js-scroll-trigger btn-xl text-uppercase">Create Review</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--Lookup data availability-->
+<section>
+    <div class="container">
+        <!--<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+              aria-label="Search">
+          </form>-->
+        <div class="row">
+            <div class="col border border-secondary mb-3 mt-5 mr-2">
+                <!--Side col for 'Areas of Interest'-->
+                <h3 class="text-center mt-2">Browse by Areas of Interest</h3>
+                <form class="form-inline d-flex justify-content-center md-form form-sm">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                           aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+                <div class="btn-group mt-3 mb-3">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#ITModal">Applied Computer Studies & IT</button>
+                    <!--Modal content start; when you click on the button a window will pop up-->
+                    <div class="modal fade" id="ITModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="list-group border-0">
+                                        <!--List of programs (not all are displayed)-->
+                                        <a href="#" class="list-group-item list-group-item-action">Computer Programming</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Computer Application Security</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Computer Programming and Analysis</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Information Technology Infrastucture</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Information Technology Network Secuirty</a>
+                                        <a href="#" class="list-group-item list-group-item-action">IT Innovation and Design</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Mobile Solutions Development</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Network Technical Support</a>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div> <!--Modal content end-->
+                    </div>
+                    <!--Continuation of button group-->
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Trades & Apprenticeships</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Creative Studies</button>
+                </div>
+                <div class="btn-group mb-3">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Liberal Studies</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Health & Life Science</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Engineering & Technology</button>
+                </div>
+                <div class="btn-group mb-3">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Business</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Language & Communication Studies </button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Hospitality & Culinary Arts</button>
+                </div>
+            </div>
+            <div class="col border border-secondary mt-5 mb-3">
+                <!--Side col for 'Electives'-->
+                <h3 class="text-center mt-2">Browse Courses & Electives</h3>
+                <form class="form-inline d-flex justify-content-center md-form form-sm">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                           aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+                <div class="btn-group mt-3 mb-3 btn-block">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Electives</button>
+                </div>
+                <div class="btn-group mb-3 btn-block">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Continuing Education</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="col">
+            <h2 class="text-center">Most recent reviews</h2>
+        </div>
+        <div class="alert alert-danger" role="alert">
+            This is where reviews will be
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="call-to-action text-dark">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12 mx-auto">
+                <h2 class="mb-4 text-center">Contact Us</h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto align-items-center">
+                <form>
+                    <div class="row">
+                        <div class="col ml-3">
+                            <label for="name" class="h4">Name:<span class="text-danger">*</span></label>
+                            <input class="form-control" id="name" name="name" type="text">
+                        </div>
+
+                        <div class="col mb-4 mr-3">
+                            <label for="email" class="h4">Email:<span class="text-danger">*</span></label>
+                            <input class="form-control" id="email" name="email">
+                        </div>
+                        <div class="col mb-4 mr-3">
+                            <label for="subject" class="h4">Subject:<span class="text-danger">*</span></label>
+                            <input class="form-control" id="subject" name="subject">
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <label for="message" class="h4">Message:</label>
+                        <textarea class="form-control" name="message" id="message"></textarea>
+                    </div>
+                    <div class="col mb-3">
+                        <button type="submit" class="btn btn-block btn-lg text-white">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in text-uppercase">Create you review</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--tab panels for review forms-->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <nav class="border border-secondary">
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active text-uppercase" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Programs & Courses</a>
+                    <a class="nav-item nav-link text-uppercase" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Electives</a>
+                    <a class="nav-item nav-link text-uppercase" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Continuing Education Courses</a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!--Tab for program/course review form-->
+                    <form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="program" class="h4">Program:</span></label>
+                                    <input class="form-control" id="program" name="program">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="course" class="h4">Course:</label>
+                                    <input class="form-control" id="course" name="course">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="type" class="h4">Account type:</label>
+                                    <input class="form-control" id="type" name="type">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="date" name="date">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="alert alert-danger" role="rating">
+                                        star rating
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="departament" class="h4">Field of study:</label>
+                                    <input class="form-control" id="departament" name="departament">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="campus" class="h4">Campus location:</label>
+                                    <input class="form-control" id="campus" name="campus">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="school" class="h4">School:</label>
+                                    <input class="form-control" id="school" name="school">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="description" class="h4">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea class="form-control" name="description" id="description"></textarea>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <!--Tab for electives review form-->
+                    <form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="course" class="h4">Course:</label>
+                                    <input class="form-control" id="course" name="course">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="date" name="date">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="alert alert-danger" role="rating">
+                                        star rating
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="type" class="h4">Account type:</label>
+                                    <input class="form-control" id="type" name="type">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="campus" class="h4">Campus location:</label>
+                                    <input class="form-control" id="campus" name="campus">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="school" class="h4">School:</label>
+                                    <input class="form-control" id="school" name="school">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="description" class="h4">Description:</label>
+                            <p>How was your experience in the elective you've completed? Do you feel there's need for improvement? (500 characters)</p>
+                            <textarea class="form-control" name="description" id="description"></textarea>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <!--Tab for continuing education review form-->
+                    <form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="program" class="h4">Program:</span></label>
+                                    <input class="form-control" id="program" name="program">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="course" class="h4">Course:</label>
+                                    <input class="form-control" id="course" name="course">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="type" class="h4">Account type:</label>
+                                    <input class="form-control" id="type" name="type">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="date" name="date">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="alert alert-danger" role="rating">
+                                        star rating
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="departament" class="h4">Field of study:</label>
+                                    <input class="form-control" id="departament" name="departament">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="campus" class="h4">Campus location:</label>
+                                    <input class="form-control" id="campus" name="campus">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label for="school" class="h4">School:</label>
+                                    <input class="form-control" id="school" name="school">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="description" class="h4">Description:</label>
+                            <p>How was your experience in the course you've completed? Do you feel there's need for improvement? (500 characters)</p>
+                            <textarea class="form-control" name="description" id="description"></textarea>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container section for how the review should look like-->
+    <div class="card mt-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>
+                        <a class="float-left"><strong>*Program title*</strong></a>
+                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+
+                    </p>
+                    <div class="clearfix"></div>
+                    <p>Lorem Ipsum is simply dummy text of the pr make  but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>*Account type*<br />*Date posted*</p>
+                    <p>
+                        <a class="float-right btn btn-outline-primary ml-2 mb-3"> <i class="fa fa-reply"></i> Reply</a>
+                        <!-- <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a> -->
+                    </p>
+                </div>
+            </div>
+            <!---	<div class="card card-inner"> this is the section for commenting
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p><strong>*Program title*</strong></a></p>
+                                <p>Lorem Ipsum is simply dummy text of the pr make  but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                <p>
+                                    <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
+                                    <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+        </div>
+    </div>
+    <div class="col mb-3 mt-3 ">
+        <button type="submit" class="btn btn-lg text-uppercase text-white">Edit Review</button>
+        <button type="submit" class="btn btn-lg text-uppercase text-white">Delete Review</button>
+    </div>
+</div>
+</div>
+

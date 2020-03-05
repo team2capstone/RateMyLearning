@@ -1,0 +1,72 @@
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .text-block {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    background-color: #e0fbfc;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 200px;
+  }
+.btn {
+    background-color: #3d5a80;
+}
+.button {
+  border: none;
+}
+footer {
+  background-color: #293241;
+}
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color:#ee6c4d;
+    background:#e0fbfc;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #3d5a80 ;
+}
+.tab-content{
+  background: #fff;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #3d5a80;
+    border-bottom:5px solid #3d5a80;
+    padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #98c1d9;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
