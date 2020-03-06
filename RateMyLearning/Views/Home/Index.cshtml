@@ -1,4 +1,7 @@
 ﻿@{
+    Layout = "_Layout";
+}
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -12,7 +15,7 @@
                         <div class="intro-text">
                             <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
                             <p class="lead text-dark mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
-                            <a href="reviews.html" class="btn text-white js-scroll-trigger btn-xl text-uppercase">Create Review</a>
+                            <a class="btn text-white js-scroll-trigger btn-xl text-uppercase" asp-area="" asp-controller="Home" asp-action="Reviews">Create Review</a>
                         </div>
                     </div>
                 </div>

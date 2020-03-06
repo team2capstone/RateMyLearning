@@ -1,20 +1,18 @@
 .masthead {
     height: 100vh;
     min-height: 500px;
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
   .text-block {
     position: absolute;
-    bottom: 100px;
-    right: 20px;
+    bottom: 200px;
     background-color: #e0fbfc;
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
-    height: 200px;
+    height: 230px;
   }
 .btn {
     background-color: #3d5a80;
