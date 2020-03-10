@@ -37,7 +37,6 @@ header.masthead .overlay {
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.3;
 }
 
 header.masthead h1 {
@@ -67,7 +66,6 @@ header.masthead h1 {
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.3;
 }
 
 footer.footer {
