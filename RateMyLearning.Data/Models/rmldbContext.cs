@@ -1,16 +1,11 @@
 ﻿using System;
+using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
-namespace RateMyLearning.Data
-{
-    public partial class rmldbContext : DbContext
-    {
-        public rmldbContext(IConfiguration configuration) {
-            Configuration = configuration;
-        }
-
+namespace RateMyLearning.Data.Models {
+    public partial class rmldbContext : DbContext {
         public rmldbContext(DbContextOptions<rmldbContext> options)
             : base(options) { }
 
@@ -26,22 +21,16 @@ namespace RateMyLearning.Data
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UsersType> UsersType { get; set; }
 
-        public IConfiguration Configuration { get; }
-
         // setup connection
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            if (!optionsBuilder.IsConfigured) {
+                optionsBuilder.UseNpgsql("Host=localhost;Database=rmldb;Username=postgres;Password=admin");
             }
         }
 
         // map out the database
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Address>(entity =>
-            {
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.Entity<Address>(entity => {
                 entity.ToTable("address");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -73,8 +62,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("address_city_id_fkey");
             });
 
-            modelBuilder.Entity<Campus>(entity =>
-            {
+            modelBuilder.Entity<Campus>(entity => {
                 entity.ToTable("campus");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -101,8 +89,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("campus_school_id_fkey");
             });
 
-            modelBuilder.Entity<City>(entity =>
-            {
+            modelBuilder.Entity<City>(entity => {
                 entity.ToTable("city");
 
                 entity.Property(e => e.Id)
@@ -122,8 +109,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("city_province_id_fkey");
             });
 
-            modelBuilder.Entity<Course>(entity =>
-            {
+            modelBuilder.Entity<Course>(entity => {
                 entity.ToTable("course");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -140,6 +126,11 @@ namespace RateMyLearning.Data
 
                 entity.Property(e => e.ProgramId).HasColumnName("program_id");
 
+                entity.Property(e => e.CourseCode)
+                    .IsRequired()
+                    .HasColumnName("course_code")
+                    .HasMaxLength(255);
+
                 entity.HasOne(d => d.Program)
                     .WithMany(p => p.Course)
                     .HasForeignKey(d => d.ProgramId)
@@ -147,8 +138,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("course_program_id_fkey");
             });
 
-            modelBuilder.Entity<Interest>(entity =>
-            {
+            modelBuilder.Entity<Interest>(entity => {
                 entity.ToTable("interest");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -169,8 +159,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("interest_school_id_fkey");
             });
 
-            modelBuilder.Entity<Program>(entity =>
-            {
+            modelBuilder.Entity<Program>(entity => {
                 entity.ToTable("program");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -201,8 +190,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("program_interest_id_fkey");
             });
 
-            modelBuilder.Entity<Province>(entity =>
-            {
+            modelBuilder.Entity<Province>(entity => {
                 entity.ToTable("province");
 
                 entity.Property(e => e.Id)
@@ -215,8 +203,7 @@ namespace RateMyLearning.Data
                     .HasMaxLength(255);
             });
 
-            modelBuilder.Entity<Review>(entity =>
-            {
+            modelBuilder.Entity<Review>(entity => {
                 entity.ToTable("review");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -241,6 +228,8 @@ namespace RateMyLearning.Data
                 entity.Property(e => e.Rating).HasColumnName("rating");
 
                 entity.Property(e => e.SchoolId).HasColumnName("school_id");
+
+                entity.Property(e => e.UsersId).HasColumnName("users_id");
 
                 entity.HasOne(d => d.Campus)
                     .WithMany(p => p.Review)
@@ -269,10 +258,15 @@ namespace RateMyLearning.Data
                     .HasForeignKey(d => d.SchoolId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("review_school_id_fkey");
+
+                entity.HasOne(d => d.Users)
+                    .WithMany(p => p.Review)
+                    .HasForeignKey(d => d.UsersId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("review_users_id_fkey");
             });
 
-            modelBuilder.Entity<School>(entity =>
-            {
+            modelBuilder.Entity<School>(entity => {
                 entity.ToTable("school");
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -283,8 +277,7 @@ namespace RateMyLearning.Data
                     .HasMaxLength(255);
             });
 
-            modelBuilder.Entity<Users>(entity =>
-            {
+            modelBuilder.Entity<Users>(entity => {
                 entity.ToTable("users");
 
                 entity.HasIndex(e => e.Email)
@@ -332,8 +325,7 @@ namespace RateMyLearning.Data
                     .HasConstraintName("users_type_id_fkey");
             });
 
-            modelBuilder.Entity<UsersType>(entity =>
-            {
+            modelBuilder.Entity<UsersType>(entity => {
                 entity.HasKey(e => e.TypeId)
                     .HasName("users_type_pkey");
 

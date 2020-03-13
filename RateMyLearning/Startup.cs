@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RateMyLearning.Data;
+using RateMyLearning.Data.Models;
 
 namespace RateMyLearning
 {

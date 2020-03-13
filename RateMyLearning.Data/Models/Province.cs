@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RateMyLearning.Data
+namespace RateMyLearning.Data.Models
 {
     public partial class Province
     {

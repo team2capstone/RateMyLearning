@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RateMyLearning.Data
+namespace RateMyLearning.Data.Models
 {
     public partial class Course
     {
@@ -14,6 +14,8 @@ namespace RateMyLearning.Data
         public string Name { get; set; }
         public string Description { get; set; }
         public long ProgramId { get; set; }
+        public string CourseCode { get; set; }
+
 
         public virtual Program Program { get; set; }
         public virtual ICollection<Review> Review { get; set; }
