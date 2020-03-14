@@ -15,6 +15,7 @@ namespace RateMyLearning.Tests {
         // run after every test
         public void Dispose() {
             _context.Database.EnsureDeleted(); // deletes InMemory database
+            _context.Dispose();
         }
 
         // setup inmemory database
@@ -45,7 +46,7 @@ namespace RateMyLearning.Tests {
             var controller = new ReviewsController(_context);
 
             // act
-            var result = await controller.GetCustomer(90);
+            var result = await controller.GetReview(90);
 
             // assert
             Assert.IsType<NotFoundResult>(result);
@@ -57,7 +58,7 @@ namespace RateMyLearning.Tests {
             var controller = new ReviewsController(_context);
 
             // act
-            var result = await controller.GetCustomer(1);
+            var result = await controller.GetReview(1);
 
             // assert
             var objectResult = Assert.IsType<OkObjectResult>(result);
@@ -109,6 +110,118 @@ namespace RateMyLearning.Tests {
                 InterestId = 1,
                 UsersId = 1
             });
+
+            // assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateReview_ReturnsBadRequest_WhenGivenInvalidId() {
+            // arrange
+            var controller = new ReviewsController(_context);
+
+            // act
+            var result = await controller.UpdateReview(90, new Review {
+                Id = 4,
+                Description = "Good course!",
+                ProgramId = 6,
+                CourseId = 3,
+                SchoolId = 1,
+                Rating = 4,
+                CampusId = 1,
+                InterestId = 1,
+                UsersId = 1
+            });
+
+            // assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateReview_ReturnsBadRequest_WhenModelStateIsInvalid() {
+            // arrange
+            var controller = new ReviewsController(_context);
+            controller.ModelState.AddModelError("Description", "Required");
+
+            // act
+            var result = await controller.UpdateReview(1, new Review {
+                Id = 4,
+                ProgramId = 6,
+                CourseId = 3,
+                SchoolId = 1,
+                Rating = 4,
+                CampusId = 1,
+                InterestId = 1,
+                UsersId = 1
+            });
+
+            // assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateReview_ReturnsNotFound_WhenIdIsInvalid() {
+            // arrange
+            var controller = new ReviewsController(_context);
+
+            // act
+            var result = await controller.UpdateReview(99, new Review {
+                Id = 99,
+                Description = "Good course",
+                ProgramId = 6,
+                CourseId = 3,
+                SchoolId = 1,
+                Rating = 4,
+                CampusId = 1,
+                InterestId = 1,
+                UsersId = 1
+            });
+
+            // assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateReview_ReturnsNoContent_WhenReviewUpdated() {
+            // arrange
+            var controller = new ReviewsController(_context);
+
+            // act
+            var result = await controller.UpdateReview(1, new Review {
+                Id = 1,
+                Description = "I updated my review!",
+                ProgramId = 6,
+                CourseId = 3,
+                SchoolId = 1,
+                Rating = 4,
+                CampusId = 1,
+                InterestId = 1,
+                UsersId = 1
+            });
+
+            // assert
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
+        public async Task DeleteReview_ReturnsNotFound_WhenGivenInvalidId() {
+            // arrange
+            var controller = new ReviewsController(_context);
+
+            // act
+            var result = await controller.DeleteReview(90);
+
+            // assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task DeleteReview_ReturnsOkObjectResult_WhenReviewDeleted() {
+            // arrange
+            var controller = new ReviewsController(_context);
+
+            // act
+            var result = await controller.DeleteReview(1);
 
             // assert
             Assert.IsType<OkObjectResult>(result);
