@@ -1,4 +1,6 @@
-﻿@{
+﻿@page
+@model RateMyLearning.Pages.IndexModel
+@{
     Layout = "_Layout";
 }
 @{
@@ -15,7 +17,7 @@
                         <div class="intro-text">
                             <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
                             <p class="lead text-dark mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
-                            <a class="btn text-white js-scroll-trigger btn-xl text-uppercase" asp-area="" asp-controller="Home" asp-action="Reviews">Create Review</a>
+                            <a class="btn text-white js-scroll-trigger btn-xl text-uppercase" asp-page="Reviews/Index">Create Review</a>
                         </div>
                     </div>
                 </div>
@@ -81,91 +83,91 @@
                                                     industry experts and as a result, should expect to have classes scheduled up until 8:00 p.m.
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
                                                 <a class="card-title">Computer Programming and Analysis</a>
                                             </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
-                                                using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
-                                                and programming techniques are mastered and applied throughout the program.
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
+                                                    using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
+                                                    and programming techniques are mastered and applied throughout the program.
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapseFour">
-                                            <a class="card-title">Information Technology Infrastructure</a>
-                                        </div>
-                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Information technology workers need a broad range of practical skills to enhance concepts and principles that are often the focus of post-secondary study.
-                                                This two-semester Ontario College Graduate Certificate program concentrates on hands-on application of network and systems administration practices and techniques
-                                                commonly employed in modern IT enterprise infrastructure management.
+                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseFour">
+                                                <a class="card-title">Information Technology Infrastructure</a>
                                             </div>
-                                        </div>
-                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapseFive">
-                                            <a class="card-title">Information Technology Network Security</a>
-                                        </div>
-                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
-                                                and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
-                                                to address this growing threat to our network infrastructure. It will provide students with the security background in network technologies, computing hardware, operating and protocols,
-                                                to harden and further secure such systems from attack. Students will learn to identify threats through audits and supporting technical methods, as well as evaluate and develop appropriate
-                                                policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
-                                                data and network systems safe. Students benefit from spec
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Information technology workers need a broad range of practical skills to enhance concepts and principles that are often the focus of post-secondary study.
+                                                    This two-semester Ontario College Graduate Certificate program concentrates on hands-on application of network and systems administration practices and techniques
+                                                    commonly employed in modern IT enterprise infrastructure management.
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapseSix">
-                                            <a class="card-title">IT Innovation and Design</a>
-                                        </div>
+                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseFive">
+                                                <a class="card-title">Information Technology Network Security</a>
+                                            </div>
+                                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
+                                                    and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
+                                                    to address this growing threat to our network infrastructure. It will provide students with the security background in network technologies, computing hardware, operating and protocols,
+                                                    to harden and further secure such systems from attack. Students will learn to identify threats through audits and supporting technical methods, as well as evaluate and develop appropriate
+                                                    policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
+                                                    data and network systems safe. Students benefit from spec
+                                                </div>
+                                            </div>
+                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseSix">
+                                                <a class="card-title">IT Innovation and Design</a>
+                                            </div>
                                             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                                            <div class="card-body">
-                                                Profound changes to the world of computer applications have created the need for a new kind of software development professional. As a result of explosive growth in the use of mobile devices,
-                                                a growing appetite for consumer applications across all demographics, and emerging digital technologies, there is a need for entrepreneurial savvy within Canadian companies to effectively
-                                                compete globally. This demands computer professionals with skills in graphic design, content creation, User Experience (UX), software development, marketing, and business models in order to
-                                                design and market new and competitive software applications. The optional co-op stream includes four consecutive four-month work terms.
-                                            </div>
+                                                <div class="card-body">
+                                                    Profound changes to the world of computer applications have created the need for a new kind of software development professional. As a result of explosive growth in the use of mobile devices,
+                                                    a growing appetite for consumer applications across all demographics, and emerging digital technologies, there is a need for entrepreneurial savvy within Canadian companies to effectively
+                                                    compete globally. This demands computer professionals with skills in graphic design, content creation, User Experience (UX), software development, marketing, and business models in order to
+                                                    design and market new and competitive software applications. The optional co-op stream includes four consecutive four-month work terms.
+                                                </div>
                                             </div>
                                         </div>
-                                </div> <!--Accoridan Items End Here-->
+                                    </div> <!--Accoridan Items End Here-->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div> <!--Modal content end-->
+                        </div> <!--Modal content end-->
+                    </div>
+                    <!--Continuation of button group-->
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Trades & Apprenticeships</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Creative Studies</button>
                 </div>
-                <!--Continuation of button group-->
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Trades & Apprenticeships</button>
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Creative Studies</button>
+                <div class="btn-group mb-3">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Liberal Studies</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Health & Life Science</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Engineering & Technology</button>
+                </div>
+                <div class="btn-group mb-3">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Business</button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Language & Communication Studies </button>
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Hospitality & Culinary Arts</button>
+                </div>
             </div>
-            <div class="btn-group mb-3">
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Liberal Studies</button>
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Health & Life Science</button>
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Engineering & Technology</button>
-            </div>
-            <div class="btn-group mb-3">
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Business</button>
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Language & Communication Studies </button>
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Hospitality & Culinary Arts</button>
-            </div>
-        </div>
-        <div class="col border border-secondary mt-5 mb-3">
-            <!--Side col for 'Electives'-->
-            <h3 class="text-center mt-2">Browse Courses & Electives</h3>
-            <form class="form-inline d-flex justify-content-center md-form form-sm">
-                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                       aria-label="Search">
-                <i class="fas fa-search" aria-hidden="true"></i>
-            </form>
-            <div class="btn-group mt-3 mb-3 btn-block">
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Electives</button>
-            </div>
-            <div class="btn-group mb-3 btn-block">
-                <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Continuing Education</button>
+            <div class="col border border-secondary mt-5 mb-3">
+                <!--Side col for 'Electives'-->
+                <h3 class="text-center mt-2">Browse Courses & Electives</h3>
+                <form class="form-inline d-flex justify-content-center md-form form-sm">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                           aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+                <div class="btn-group mt-3 mb-3 btn-block">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Electives</button>
+                </div>
+                <div class="btn-group mb-3 btn-block">
+                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Continuing Education</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -218,3 +220,4 @@
         </div>
     </div>
 </section>
+

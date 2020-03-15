@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css" />
 
     <!--Favicon-->
     <link href="~/img/favicon.png" type="image/png" rel="icon">
@@ -31,7 +30,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light shadow fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png" alt="" height="50" width="200"></a>
+                <a class="navbar-brand" asp-area="" asp-page="Index"><img src="~/img/logo2.png" alt="" height="50" width="200"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -45,7 +44,7 @@
                             <a class="nav-link" href="#">Electives</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Reviews">Reviews</a>
+                            <a class="nav-link" asp-page="Reviews/Index">Reviews</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Sign In</a>
