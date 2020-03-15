@@ -1,3 +1,4 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -15,13 +16,16 @@
     height: 230px;
   }
 .accordion .card-header:after {
-    
     background-color: #3d5a80;
-    
+    float: right !important;
+    font-family: fontawesome;
+    content: "\f068";
+    padding-right: 5px;
 }
 
 .accordion .card-header.collapsed:after {
     background-color: #3d5a80;
+    content: "\f067";
 }
 
 .card-header {
