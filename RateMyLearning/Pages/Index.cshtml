@@ -177,8 +177,34 @@
         <div class="col">
             <h2 class="text-center">Most recent reviews</h2>
         </div>
-        <div class="alert alert-danger" role="alert">
-            This is where reviews will be
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        @foreach (var item in Model.ReviewData.Reviews) {
+                            <p>
+                                <a class="float-left"><strong>@item.Program.Name</strong></a>
+                                @{ string rating = "";
+                                    for (var i = 0; i < 5; i++) {
+                                        if (i < item.Rating) {
+                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                        }
+                                    }
+                                    @Html.Raw(rating);
+                                }
+                            </p>
+                            <div class="clearfix"></div>
+                            <p>@item.Description</p>
+                            @if (item.Users.TypeId == 1) {
+                                <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                            }
+                            else if (item.Users.TypeId == 2) {
+                                <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace RateMyLearning.ViewModels {
     public class ReviewViewModel {
-        public IEnumerable<Review> Reviews { get; set; }       
+        public IEnumerable<Review> Reviews { get; set; }
     }
 }
