@@ -1,4 +1,9 @@
-﻿jQuery(document).ready(function ($) {
+﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+jQuery(document).ready(function ($) {
     $('.rating_stars span.r').hover(function () {
         // get hovered value
         var rating = $(this).data('rating');
