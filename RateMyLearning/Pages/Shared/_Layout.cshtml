@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css" />
 
     <!--Favicon-->
     <link href="~/img/favicon.png" type="image/png" rel="icon">
@@ -30,7 +31,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light shadow fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="Index"><img src="~/img/logo2.png" alt="" height="50" width="200"></a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/img/logo2.png" alt="" height="50" width="200"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,15 +58,15 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small indigo">
-        <div class="container text-center text-md-left">
+        <div class="container-fluid text-center text-md-left">
             <div class="row">
                 <!-- col 1 -->
                 <div class="col-md-3 mx-auto">

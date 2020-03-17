@@ -34,7 +34,7 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <!--Tab for program/course review form-->
                     <form>
-                        <div class="form-group">
+                        <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3">
                                     <label for="program" class="h4">Program:</label>
@@ -56,8 +56,33 @@
                                 </div>
                                 <div class="col mb-4 mr-3">
                                     <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
-                                    <div class="alert alert-danger">
-                                        star rating
+                                    <div class="">
+                                        <span class="rating_stars rating_0">
+                                            <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+
+                                            <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+                                            <span class='r r1' data-rating='1' data-value='1'></span>
+                                            <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+                                            <span class='r r2' data-rating='2' data-value='2'></span>
+                                            <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+                                            <span class='r r3' data-rating='3' data-value='3'></span>
+                                            <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+                                            <span class='r r4' data-rating='4' data-value='4'></span>
+                                            <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+                                            <span class='r r5' data-rating='5' data-value='5'></span>
+                                        </span>
+                                    </div>
+                                    <div class="values">
+                                        <div>
+                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                        </div>
+                                        <div>
+                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -90,11 +115,17 @@
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <!--Tab for electives review form-->
                     <form>
-                        <div class="form-group">
+                        <div class="">
                             <div class="row">
-                                <div class="col mb-4 ml-3">
+                                <div class="col mb-4 ml-3 mr-3">
                                     <label for="course" class="h4">Course:</label>
                                     <input class="form-control" id="course" name="course">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label for="school" class="h4">School:</label>
+                                    <input class="form-control" id="school" name="school">
                                 </div>
                                 <div class="col mb-4 mr-3">
                                     <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
@@ -102,29 +133,54 @@
                                 </div>
                                 <div class="col mb-4 mr-3">
                                     <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
-                                    <div class="alert alert-danger">
-                                        star rating
+                                    <div class="">
+                                        <span class="rating_stars rating_0">
+                                            <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+
+                                            <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+                                            <span class='r r1' data-rating='1' data-value='1'></span>
+                                            <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+                                            <span class='r r2' data-rating='2' data-value='2'></span>
+                                            <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+                                            <span class='r r3' data-rating='3' data-value='3'></span>
+                                            <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+                                            <span class='r r4' data-rating='4' data-value='4'></span>
+                                            <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+                                            <span class='r r5' data-rating='5' data-value='5'></span>
+                                        </span>
+                                    </div>
+                                    <div class="values">
+                                        <div>
+                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                        </div>
+                                        <div>
+                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label for="type" class="h4">Account type:</label>
-                                    <input class="form-control" id="type" name="type">
+                                    <input class="form-control" id="departament" name="departament" type="hidden">
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="campus" class="h4">Campus location:</label>
-                                    <input class="form-control" id="campus" name="campus">
+                                    <input class="form-control" id="campus" name="campus" type="hidden">
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="school" class="h4">School:</label>
-                                    <input class="form-control" id="school" name="school">
+                                    <input class="form-control" id="type" name="type" type="hidden">
                                 </div>
                             </div>
                         </div>
                         <div class="col mb-3">
                             <label for="description" class="h4">Description:</label>
-                            <p>How was your experience in the elective you've completed? Do you feel there's need for improvement? (500 characters)</p>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
                             <textarea class="form-control" name="description" id="description"></textarea>
                         </div>
                         <div class="col mb-3">
@@ -160,7 +216,32 @@
                                 <div class="col mb-4 mr-3">
                                     <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="alert alert-danger">
-                                        star rating
+                                        <span class="rating_stars rating_0">
+                                            <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+
+                                            <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+                                            <span class='r r1' data-rating='1' data-value='1'></span>
+                                            <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+                                            <span class='r r2' data-rating='2' data-value='2'></span>
+                                            <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+                                            <span class='r r3' data-rating='3' data-value='3'></span>
+                                            <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+                                            <span class='r r4' data-rating='4' data-value='4'></span>
+                                            <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+                                            <span class='r r5' data-rating='5' data-value='5'></span>
+                                        </span>
+                                    </div>
+                                    <div class="values">
+                                        <div>
+                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                        </div>
+                                        <div>
+                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
