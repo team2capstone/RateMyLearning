@@ -8,10 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using RateMyLearning.Data.Models;
 using RateMyLearning.ViewModels;
 
-namespace RateMyLearning.Pages
-{
-    public class IndexModel : PageModel
-    {
+namespace RateMyLearning.Pages {
+    public class IndexModel : PageModel {
         private readonly rmldbContext _context;
 
         public IndexModel(rmldbContext context) {

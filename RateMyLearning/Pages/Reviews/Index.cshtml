@@ -33,29 +33,34 @@
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <!--Tab for program/course review form-->
-                    <form>
+                    <!--TODO: If we have time, find way to use textboxes instead of lists so users can
+                    create a review for a program that is not listed-->
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <label for="program" class="h4">Program:</label>
-                                    <input class="form-control" id="program" name="program">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <label for="course" class="h4">Course:</label>
-                                    <input class="form-control" id="course" name="course">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label for="school" class="h4">School:</label>
-                                    <input class="form-control" id="school" name="school">
+                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="date" name="date">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="">
                                         <span class="rating_stars rating_0">
                                             <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
@@ -78,10 +83,10 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                            <input type="text" id="rating" value="0" hidden />
                                         </div>
                                         <div>
-                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
                                         </div>
                                     </div>
                                 </div>
@@ -99,40 +104,42 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label for="description" class="h4">Description:</label>
+                            <label asp-for="Review.Description" class="h4">Description:</label>
                             <p>
                                 How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
                                 Do you feel there's need for improvement? (500 characters)
                             </p>
-                            <textarea class="form-control" name="description" id="description"></textarea>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
                         </div>
                     </form>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <!--Tab for electives review form-->
-                    <form>
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label for="course" class="h4">Course:</label>
-                                    <input class="form-control" id="course" name="course">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label for="school" class="h4">School:</label>
-                                    <input class="form-control" id="school" name="school">
+                                    <label asp-for="Review.CourseId" class="h4">Elective:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="elective" name="elective" disabled>
+                                        <option value="none" selected disabled hidden>Select elective</option>
+                                    </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="date" name="date">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="">
                                         <span class="rating_stars rating_0">
                                             <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
@@ -155,10 +162,10 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                            <input type="text" id="rating" value="0" hidden />
                                         </div>
                                         <div>
-                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
                                         </div>
                                     </div>
                                 </div>
@@ -176,46 +183,49 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label for="description" class="h4">Description:</label>
+                            <label asp-for="Review.Description" class="h4">Description:</label>
                             <p>
                                 How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
                                 Do you feel there's need for improvement? (500 characters)
                             </p>
-                            <textarea class="form-control" name="description" id="description"></textarea>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
                         </div>
                     </form>
-
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <!--Tab for continuing education review form-->
-                    <form>
-                        <div class="form-group">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
                             <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <label for="program" class="h4">Program:</label>
-                                    <input class="form-control" id="program" name="program">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <label for="course" class="h4">Course:</label>
-                                    <input class="form-control" id="course" name="course">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label for="type" class="h4">Account type:</label>
-                                    <input class="form-control" id="type" name="type">
+                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="date" class="h4">Date:<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="date" name="date">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <label for="rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
-                                    <div class="alert alert-danger">
+                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="">
                                         <span class="rating_stars rating_0">
                                             <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
                                             <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
@@ -237,86 +247,84 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                            <input type="text" id="rating" value="0" hidden />
                                         </div>
                                         <div>
-                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label for="departament" class="h4">Field of study:</label>
-                                    <input class="form-control" id="departament" name="departament">
+                                    <input class="form-control" id="departament" name="departament" type="hidden">
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="campus" class="h4">Campus location:</label>
-                                    <input class="form-control" id="campus" name="campus">
+                                    <input class="form-control" id="campus" name="campus" type="hidden">
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label for="school" class="h4">School:</label>
-                                    <input class="form-control" id="school" name="school">
+                                    <input class="form-control" id="type" name="type" type="hidden">
                                 </div>
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label for="description" class="h4">Description:</label>
-                            <p>How was your experience in the course you've completed? Do you feel there's need for improvement? (500 characters)</p>
-                            <textarea class="form-control" name="description" id="description"></textarea>
+                            <label asp-for="Review.Description" class="h4">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
     <!--container section for how the review should look like-->
+    <h1>Your Reviews</h1>
     <div class="card mt-4">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
-                    <p>
-                        <a class="float-left"><strong>*Program title*</strong></a>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-
-                    </p>
-                    <div class="clearfix"></div>
-                    <p>Lorem Ipsum is simply dummy text of the pr make  but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p>*Account type*<br />*Date posted*</p>
-                    <p>
-                        <a class="float-right btn ml-2 mb-3 text-white"><i class="fa fa-reply"></i> Reply</a>
-                        <!-- <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a> -->
-                    </p>
+                    @foreach (var item in Model.ReviewData.Reviews) {
+                        <p>
+                            <a class="float-left"><strong>@item.Program.Name</strong></a>
+                            @{ string rating = "";
+                                for (var i = 0; i < 5; i++) {
+                                    if (i < item.Rating) {
+                                        rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                    }
+                                }
+                                @Html.Raw(rating);
+                            }
+                        </p>
+                        <div class="clearfix"></div>
+                        <p>@item.Description</p>
+                        @if (item.Users.TypeId == 1) {
+                            <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                        }
+                        else if (item.Users.TypeId == 2) {
+                            <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                        }
+                        <div>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-route-id="@item.Id" asp-page-handler="Delete" >Delete</a>
+                            <p class="text-danger">@Model.ErrorMessage</p>
+                        </div>
+                    }
                 </div>
             </div>
-            <!---	<div class="card card-inner"> this is the section for commenting
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <p><strong>*Program title*</strong></a></p>
-                                <p>Lorem Ipsum is simply dummy text of the pr make  but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <p>
-                                    <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
-                                    <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
-                               </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
         </div>
     </div>
-    <div class="col mb-3 mt-3 ">
-        <button type="submit" class="btn btn-lg text-uppercase text-white">Edit Review</button>
-        <button type="submit" class="btn btn-lg text-uppercase text-white">Delete Review</button>
-    </div>
 </div>
+
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
 
 

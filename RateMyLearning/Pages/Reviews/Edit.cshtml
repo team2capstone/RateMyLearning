@@ -1,0 +1,104 @@
+﻿@page 
+@model RateMyLearning.Pages.Reviews.EditModel
+@{
+    ViewData["Title"] = "Create new review";
+}
+
+<header>
+    <h1>Edit your review</h1>
+</header>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Review.Id" />
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.School.Name" class="control-label"></label>
+                                    <input asp-for="Review.School.Name" class="form-control" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.Program.Name" class="control-label"></label>
+                                    <input asp-for="Review.Program.Name" class="form-control" disabled />
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.Course.Name" class="control-label"></label>
+                                    <input asp-for="Review.Course.Name" class="form-control" disabled />
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="">
+                                        <span class="rating_stars rating_0">
+                                            <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                            <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+
+                                            <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+                                            <span class='r r1' data-rating='1' data-value='1'></span>
+                                            <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+                                            <span class='r r2' data-rating='2' data-value='2'></span>
+                                            <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+                                            <span class='r r3' data-rating='3' data-value='3'></span>
+                                            <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+                                            <span class='r r4' data-rating='4' data-value='4'></span>
+                                            <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+                                            <span class='r r5' data-rating='5' data-value='5'></span>
+                                        </span>
+                                    </div>
+                                    <div class="values">
+                                        <div>
+                                            <input type="text" id="rating" value="0" hidden />
+                                        </div>
+                                        <div>
+                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" hidden />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <input class="form-control" id="departament" name="departament" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="campus" name="campus" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="type" name="type" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label asp-for="Review.Description" class="h4">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-sm text-uppercase text-white float-right">Save</button>
+                            <button type="submit" class="btn btn-sm text-uppercase text-white float-right" asp-route-id="@Model.Review.Id" asp-page-handler="Delete">Delete</button>
+                            <button type="submit" class="btn btn-sm text-uppercase text-white" asp-page-handler="Cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
