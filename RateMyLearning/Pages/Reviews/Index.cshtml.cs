@@ -82,7 +82,7 @@ namespace RateMyLearning.Pages.Reviews {
             }
         }
 
-        public async Task<IActionResult> OnPostCreateAsync() {
+        public async Task<IActionResult> OnPostAsync() {
             // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
             // for whaterver reason instead of the selected value.
             long programId = (long)Convert.ToDouble(Request.Form["program"]);

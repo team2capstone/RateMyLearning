@@ -113,8 +113,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -317,7 +316,7 @@
                         }
                         <div>
                             <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
-                            <a asp-route-id="@item.Id" asp-page-handler="Delete" >Delete</a>
+                            <a asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
                             <p class="text-danger">@Model.ErrorMessage</p>
                         </div>
                     }

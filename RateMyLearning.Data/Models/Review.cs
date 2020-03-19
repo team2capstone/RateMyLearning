@@ -7,8 +7,8 @@ namespace RateMyLearning.Data.Models
     public partial class Review
     {
         public long Id { get; set; }
-        [Required]
-        [StringLength(255, MinimumLength = 1)]
+        [Required(ErrorMessage = "Please provide a valid description.")]
+        [StringLength(255, MinimumLength = 2, ErrorMessage = "Please provide a description greater than 1 character.")]
         public string Description { get; set; }
         public DateTime CreatedOn { get; set; }
         public long ProgramId { get; set; }
