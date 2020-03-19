@@ -297,7 +297,11 @@
                             @{ string rating = "";
                                 for (var i = 0; i < 5; i++) {
                                     if (i < item.Rating) {
-                                        rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                        if (item.Rating % 1 > 0) {
+                                             rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                        } else {
+                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                        }                                        
                                     }
                                 }
                                 @Html.Raw(rating);

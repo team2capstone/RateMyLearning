@@ -15,13 +15,6 @@ namespace RateMyLearning.Pages.Reviews {
         private readonly rmldbContext _context;
         private readonly ISchoolService _schoolService;
 
-        //[BindProperty(SupportsGet = true)]
-        //public int SchoolId { get; set; }
-        //[BindProperty(SupportsGet = true)]
-        //public int ProgramId { get; set; }
-        //[BindProperty(SupportsGet = true)]
-        //public int CourseId { get; set; }
-
         [BindProperty(SupportsGet = true)]
         public Review Review { get; set; }
         public ReviewViewModel ReviewData { get; set; }
@@ -95,7 +88,7 @@ namespace RateMyLearning.Pages.Reviews {
             long programId = (long)Convert.ToDouble(Request.Form["program"]);
             long schoolId = (long)Convert.ToDouble(Request.Form["school"]);
             long courseId = (long)Convert.ToDouble(Request.Form["course"]);
-            int rating = Convert.ToInt32(Request.Form["rating"]);
+            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
 
             if (!ModelState.IsValid) {
                 return Page();
