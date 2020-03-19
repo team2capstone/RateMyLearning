@@ -182,21 +182,24 @@
                 <div class="row">
                     <div class="col-md-10">
                         @foreach (var item in Model.ReviewData.Reviews) {
-                        <p>
-                            <a class="float-left"><strong>@item.Program.Name</strong></a>
-                            @{ string rating = "";
-                                for (var i = 0; i < 5; i++) {
-                                    if (i < item.Rating) {
-                                        if (item.Rating % 1 > 0) {
-                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
-                                        } else {
-                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                            <p>
+                                <a class="float-left"><strong>@item.Program.Name</strong></a>
+                                @{ string rating = "";
+                                    for (var i = 0; i < 5; i++) {
+                                        if (i < item.Rating) {
+                                            if (item.Rating % 1 > 0) {
+                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                            }
+                                            else {
+                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                            }
                                         }
                                     }
+                                    @Html.Raw(rating);
+                                    <br />
+                                    <a class="float-left"><strong>@item.Course.Name</strong></a>
                                 }
-                                @Html.Raw(rating);
-                            }
-                        </p>
+                            </p>
                             <div class="clearfix"></div>
                             <p>@item.Description</p>
                             @if (item.Users.TypeId == 1) {

@@ -36,6 +36,7 @@ namespace RateMyLearning.Pages.Reviews {
             ReviewData = new ReviewViewModel();
             ReviewData.Reviews = await _context.Review
                 .Include(x => x.Program)
+                .Include(x => x.Course)
                 .Include(x => x.Users)
                 .Include(x => x.Users.Type)
                 .Where(x => x.UsersId == 1)
