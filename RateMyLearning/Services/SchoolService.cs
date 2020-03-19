@@ -9,6 +9,7 @@ namespace RateMyLearning.Services {
     public interface ISchoolService {
         IEnumerable<RateMyLearning.Data.Models.Program> GetPrograms();
         IEnumerable<Course> GetCourses(long programId);
+        IEnumerable<Course> GetElectives();
     }
 
     public class SchoolService : ISchoolService {
@@ -29,6 +30,13 @@ namespace RateMyLearning.Services {
                 .Where(s => s.ProgramId == programId)
                 .ToList();
             return courses;
+        }
+
+        public IEnumerable<Course> GetElectives() {
+            var electives = _context.Course
+                .Where(s => s.IsElective == true)
+                .ToList();
+            return electives;
         }
     }
 }

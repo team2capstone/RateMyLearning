@@ -136,6 +136,10 @@ namespace RateMyLearning.Data.Models {
                     .HasForeignKey(d => d.ProgramId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("course_program_id_fkey");
+
+                entity.Property(e => e.IsElective).HasColumnName("is_elective");
+
+                entity.Property(e => e.ContinuingEducation).HasColumnName("continuing_education");
             });
 
             modelBuilder.Entity<Interest>(entity => {

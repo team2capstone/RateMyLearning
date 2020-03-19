@@ -15,6 +15,8 @@ namespace RateMyLearning.Data.Models
         public string Description { get; set; }
         public long ProgramId { get; set; }
         public string CourseCode { get; set; }
+        public bool IsElective { get; set; }
+        public bool ContinuingEducation { get; set; }
 
 
         public virtual Program Program { get; set; }

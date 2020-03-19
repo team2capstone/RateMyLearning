@@ -58,6 +58,10 @@ namespace RateMyLearning.Pages.Reviews {
             return new JsonResult(_schoolService.GetCourses(Review.ProgramId));
         }
 
+        public JsonResult OnGetElectives() {
+            return new JsonResult(_schoolService.GetElectives());
+        }
+
         public async Task<IActionResult> OnGetDeleteAsync(long? id) {
             if (id == null) {
                 return NotFound();
@@ -95,12 +99,45 @@ namespace RateMyLearning.Pages.Reviews {
                 return Page();
             }
 
+            // create course review
             _context.Review.Add(new Review {
                 Description = Review.Description,
                 ProgramId = programId,
                 SchoolId = schoolId,
                 CourseId = courseId,
                 InterestId = 1,
+                CampusId = 1,
+                Rating = rating,
+                UsersId = 1
+            });
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
+        }
+
+        public async Task<IActionResult> OnPostElectiveAsync() {
+            // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
+            // for whaterver reason instead of the selected value.
+            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);
+            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
+
+            if (!ModelState.IsValid) {
+                return Page();
+            }
+
+            // find the selected elective's program and interest id
+            var electives = await _context.Course
+                .Include(i => i.Program)
+                    .ThenInclude(i => i.Interest)
+                .ToListAsync();
+            var selectedElective = electives.FirstOrDefault(s => s.Id == electiveId);
+
+            // create elective review
+            _context.Review.Add(new Review {
+                Description = Review.Description,
+                ProgramId = selectedElective.ProgramId,
+                SchoolId = selectedElective.Program.Interest.SchoolId,
+                CourseId = electiveId,
+                InterestId = selectedElective.Program.InterestId,
                 CampusId = 1,
                 Rating = rating,
                 UsersId = 1

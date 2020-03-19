@@ -61,7 +61,16 @@
     });
 
     // find and populate electives depending on whichever school was selected
-    $('#school').change(function () {
+    $('#elective-school').change(function () {
         $('#elective').prop('disabled', false);
+
+        var schoolId = $(this).val();
+        $("#elective").empty();
+        $("#elective").append("<option value=''>Select elective</option>");
+        $.getJSON(`?handler=Electives`, (data) => {
+            $.each(data, function (i, item) {
+                $("#elective").append(`<option value="${item.id}">${item.name}</option>`);
+            });
+        });
     });
 });

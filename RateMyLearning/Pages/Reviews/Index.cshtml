@@ -83,12 +83,20 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <input type="text" id="rating" value="0" hidden />
+                                            <label>Rating</label><input type="text" id="rating" value="0" />
                                         </div>
                                         <div>
-                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
                                         </div>
                                     </div>
+                                    @*<div class="values">
+            <div>
+                <input type="text" id="rating" value="0" hidden />
+            </div>
+            <div>
+                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+            </div>
+        </div>*@
                                 </div>
                             </div>
                             <div class="row">
@@ -119,13 +127,13 @@
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <!--Tab for electives review form-->
-                    <form method="post">
+                    <form method="post" id="form-elective" name="form-elective">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
                                     <label asp-for="Review.SchoolId" class="h4">School:</label>
-                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                    <select asp-for="Review.SchoolId" class="form-control" id="elective-school" name="elective-school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
                                 </div>
@@ -161,23 +169,20 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <input type="text" id="rating" value="0" hidden />
+                                            <label>Rating</label><input type="text" id="rating" value="0" />
                                         </div>
                                         <div>
-                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <input class="form-control" id="departament" name="departament" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="campus" name="campus" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="type" name="type" type="hidden">
+                                    @*<div class="values">
+            <div>
+                <input asp-for="Review.Rating" type="text" id="rating" value="0" hidden />
+            </div>
+            <div>
+                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+            </div>
+        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -191,8 +196,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button asp-page-handler="Elective" type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -246,10 +250,10 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <input type="text" id="rating" value="0" hidden />
+                                            <input type="text" id="elective-rating" value="0" hidden />
                                         </div>
                                         <div>
-                                            <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+                                            <input asp-for="Review.Rating" type="text" name="rating" id="elective-rating_val" value="0" hidden />
                                         </div>
                                     </div>
                                 </div>
@@ -276,8 +280,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="Create" class="btn btn-lg text-uppercase text-white">Post Review</button>
-                            <button asp-page-handler="Cancel" class="btn btn-lg text-uppercase text-white">Cancel</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
                         </div>
                     </form>
                 </div>
