@@ -9,11 +9,14 @@
  h1,h2,h3,h4,h5,h6
  {font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-weight:700}
- header.masthead
- {  position:relative;
-    background-color:#343a40;
-    background:url(../img/bg-banner.jpg) no-repeat center center;
-    background-size:cover;padding-top:8rem;padding-bottom:8rem}
+header.masthead {
+    position: relative;
+    background-color: #343a40;
+    background: linear-gradient( rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2) ), url(../img/bg-banner.jpg) no-repeat center center;
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem
+}
 header.masthead .overlay
 {position:absolute;
    background-color:#212529;
