@@ -20,14 +20,12 @@ namespace RateMyLearning.Pages.Reviews {
         public ReviewViewModel ReviewData { get; set; }
         public SelectList Schools { get; set; }
 
-        public string ErrorMessage { get; set; }
-
         public IndexModel(ISchoolService schoolService, rmldbContext context) {
             _schoolService = schoolService;
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync(bool? saveChangesError = false) {
+        public async Task<IActionResult> OnGetAsync() {
             // populate dropdownlists
             Schools = new SelectList(_context.School,
                 "Id", "Name");
@@ -43,25 +41,10 @@ namespace RateMyLearning.Pages.Reviews {
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
 
-            // check for any errors caused by delete/edit
-            if (saveChangesError.GetValueOrDefault()) {
-                ErrorMessage = "Delete failed. Try again";
-            }
             return Page();
         }
 
-        public JsonResult OnGetPrograms() {
-            return new JsonResult(_schoolService.GetPrograms());
-        }
-
-        public JsonResult OnGetCourses() {
-            return new JsonResult(_schoolService.GetCourses(Review.ProgramId));
-        }
-
-        public JsonResult OnGetElectives() {
-            return new JsonResult(_schoolService.GetElectives());
-        }
-
+        // Delete a review
         public async Task<IActionResult> OnGetDeleteAsync(long? id) {
             if (id == null) {
                 return NotFound();
@@ -87,38 +70,30 @@ namespace RateMyLearning.Pages.Reviews {
             }
         }
 
+        // Create a review
         public async Task<IActionResult> OnPostAsync() {
-            // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
-            // for whaterver reason instead of the selected value.
-            long programId = (long)Convert.ToDouble(Request.Form["program"]);
-            long schoolId = (long)Convert.ToDouble(Request.Form["school"]);
-            long courseId = (long)Convert.ToDouble(Request.Form["course"]);
-            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
-
             if (!ModelState.IsValid) {
                 return Page();
             }
 
-            // create course review
+            // insert review
             _context.Review.Add(new Review {
                 Description = Review.Description,
-                ProgramId = programId,
-                SchoolId = schoolId,
-                CourseId = courseId,
+                ProgramId = (long)Convert.ToDouble(Request.Form["program"]),
+                SchoolId = (long)Convert.ToDouble(Request.Form["school"]),
+                CourseId = (long)Convert.ToDouble(Request.Form["course"]),
                 InterestId = 1,
                 CampusId = 1,
-                Rating = rating,
+                Rating = Convert.ToDecimal(Request.Form["rating"]),
                 UsersId = 1
             });
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
 
+        // Create a review for an elective course
         public async Task<IActionResult> OnPostElectiveAsync() {
-            // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
-            // for whaterver reason instead of the selected value.
-            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);
-            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
+            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);            
 
             if (!ModelState.IsValid) {
                 return Page();
@@ -131,7 +106,7 @@ namespace RateMyLearning.Pages.Reviews {
                 .ToListAsync();
             var selectedElective = electives.FirstOrDefault(s => s.Id == electiveId);
 
-            // create elective review
+            // insert elective review
             _context.Review.Add(new Review {
                 Description = Review.Description,
                 ProgramId = selectedElective.ProgramId,
@@ -139,11 +114,52 @@ namespace RateMyLearning.Pages.Reviews {
                 CourseId = electiveId,
                 InterestId = selectedElective.Program.InterestId,
                 CampusId = 1,
-                Rating = rating,
+                Rating = Convert.ToDecimal(Request.Form["rating"]),
                 UsersId = 1
             });
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
+        }
+
+        // Create a review for a continuing education program/course
+        public async Task<IActionResult> OnPostContinuingEducationAsync() {
+            if (!ModelState.IsValid) {
+                return Page();
+            }
+
+            // insert review
+            _context.Review.Add(new Review {
+                Description = Review.Description,
+                ProgramId = (long)Convert.ToDouble(Request.Form["continuing-education-program"]),
+                SchoolId = (long)Convert.ToDouble(Request.Form["continuing-education-school"]),
+                CourseId = (long)Convert.ToDouble(Request.Form["continuing-education-course"]),
+                InterestId = 1,
+                CampusId = 1,
+                Rating = Convert.ToDecimal(Request.Form["rating"]),
+                UsersId = 1
+            });
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
+        }
+
+        public JsonResult OnGetPrograms() {
+            return new JsonResult(_schoolService.GetPrograms());
+        }
+
+        public JsonResult OnGetCourses() {
+            return new JsonResult(_schoolService.GetCourses(Review.ProgramId));
+        }
+
+        public JsonResult OnGetElectives() {
+            return new JsonResult(_schoolService.GetElectives());
+        }
+
+        public JsonResult OnGetContinuingEducationPrograms() {
+            return new JsonResult(_schoolService.GetContinuingEducationPrograms());
+        }
+
+        public JsonResult OnGetContinuingEducationCourses() {
+            return new JsonResult(_schoolService.GetContinuingEducationCourses(Review.ProgramId));
         }
     }
 }

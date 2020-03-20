@@ -202,13 +202,13 @@
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <!--Tab for continuing education review form-->
-                    <form method="post">
+                    <form method="post" id="form-continuing-education" name="form-continuing-education">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
                                     <label asp-for="Review.SchoolId" class="h4">School:</label>
-                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                    <select asp-for="Review.SchoolId" class="form-control" id="continuing-education-school" name="continuing-education-school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
                                 </div>
@@ -216,13 +216,13 @@
                             <div class="row">
                                 <div class="col mb-4 ml-3">
                                     <label asp-for="Review.ProgramId" class="h4">Program:</label>
-                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="continuing-education-program" name="continuing-education-program" disabled>
                                         <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
                                 <div class="col mb-4 ml-3">
                                     <label asp-for="Review.CourseId" class="h4">Course:</label>
-                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                    <select asp-for="Review.CourseId" class="form-control" id="continuing-education-course" name="continuing-education-course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
                                 </div>
@@ -258,17 +258,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <input class="form-control" id="departament" name="departament" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="campus" name="campus" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="type" name="type" type="hidden">
-                                </div>
-                            </div>
                         </div>
                         <div class="col mb-3">
                             <label asp-for="Review.Description" class="h4">Description:</label>
@@ -280,7 +269,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -322,7 +311,6 @@
                         <div>
                             <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
                             <a asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
-                            <p class="text-danger">@Model.ErrorMessage</p>
                         </div>
                     }
                 </div>

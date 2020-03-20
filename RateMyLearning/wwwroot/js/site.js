@@ -38,7 +38,6 @@
 
         var schoolId = $(this).val();
         $("#program").empty();
-        $("#program").append("<option value=''>Select program</option>");
         $.getJSON(`?handler=Programs`, (data) => {
             $.each(data, function (i, item) {
                 $("#program").append(`<option value="${item.id}">${item.name}</option>`);
@@ -52,7 +51,6 @@
 
         var programId = $(this).val();
         $("#course").empty();
-        $("#course").append("<option value=''>Select course</option>");
         $.getJSON(`?handler=Courses&programId=${programId}`, (data) => {
             $.each(data, function (i, item) {
                 $("#course").append(`<option value="${item.id}">${item.name}</option>`);
@@ -66,10 +64,36 @@
 
         var schoolId = $(this).val();
         $("#elective").empty();
-        $("#elective").append("<option value=''>Select elective</option>");
         $.getJSON(`?handler=Electives`, (data) => {
             $.each(data, function (i, item) {
                 $("#elective").append(`<option value="${item.id}">${item.name}</option>`);
+            });
+        });
+    });
+
+    // find and populate continuing education programs depending on whichever school was selected
+    $('#continuing-education-school').change(function () {
+        $('#continuing-education-program').prop('disabled', false);
+
+        var schoolId = $(this).val();
+        $("#continuing-education-program").empty();
+        $("#continuing-education-program").append("<option value=''>Select program</option>");
+        $.getJSON(`?handler=ContinuingEducationPrograms`, (data) => {
+            $.each(data, function (i, item) {
+                $("#continuing-education-program").append(`<option value="${item.id}">${item.name}</option>`);
+            });
+        });
+    });
+
+    // find and populate continuing education courses depending on whichever program was selected
+    $('#continuing-education-program').change(function () {
+        $('#continuing-education-course').prop('disabled', false);
+
+        var programId = $(this).val();
+        $("#continuing-education-course").empty();        
+        $.getJSON(`?handler=ContinuingEducationCourses&programId=${programId}`, (data) => {
+            $.each(data, function (i, item) {
+                $("#continuing-education-course").append(`<option value="${item.id}">${item.name}</option>`);
             });
         });
     });
