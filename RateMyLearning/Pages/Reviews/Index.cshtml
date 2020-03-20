@@ -1,6 +1,9 @@
 ﻿@page
 @model RateMyLearning.Pages.Reviews.IndexModel
 @{
+    Layout = "_Layout";
+}
+@{
     ViewData["Title"] = "Create new review";
 }
 
@@ -11,7 +14,7 @@
             <div class="col-lg-12 text-block">
                 <div class="row">
                     <div class="col">
-                        <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in text-uppercase">Create your review</h1>
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Create your review</h1>
                     </div>
                 </div>
             </div>
@@ -61,42 +64,56 @@
                                 </div>
                                 <div class="col mb-4 mr-3">
                                     <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
-                                    <div class="">
-                                        <span class="rating_stars rating_0">
-                                            <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
-                                            <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
-                                            <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
-                                            <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
-                                            <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="star-rating">@*This is the new/shorter star rating code i found which still works - the original is commented out below*@
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="hidden" name="rating" class="rating-value" value="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="">
+                                                <span class="rating_stars rating_0">
+                                                    <span class='s' data-low='0.5' data-high='1'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                                    <span class='s' data-low='1.5' data-high='2'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                                    <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                                    <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
+                                                    <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
 
-                                            <span class='r r0_5' data-rating='1' data-value='0.5'></span>
-                                            <span class='r r1' data-rating='1' data-value='1'></span>
-                                            <span class='r r1_5' data-rating='15' data-value='1.5'></span>
-                                            <span class='r r2' data-rating='2' data-value='2'></span>
-                                            <span class='r r2_5' data-rating='25' data-value='2.5'></span>
-                                            <span class='r r3' data-rating='3' data-value='3'></span>
-                                            <span class='r r3_5' data-rating='35' data-value='3.5'></span>
-                                            <span class='r r4' data-rating='4' data-value='4'></span>
-                                            <span class='r r4_5' data-rating='45' data-value='4.5'></span>
-                                            <span class='r r5' data-rating='5' data-value='5'></span>
-                                        </span>
-                                    </div>
-                                    <div class="values">
-                                        <div>
-                                            <label>Rating</label><input type="text" id="rating" value="0" />
-                                        </div>
-                                        <div>
-                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
-                                        </div>
-                                    </div>
-                                    @*<div class="values">
-            <div>
-                <input type="text" id="rating" value="0" hidden />
-            </div>
-            <div>
-                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
-            </div>
-        </div>*@
+                                                    <span class='r r0_5' data-rating='1' data-value='0.5'></span>
+                                                    <span class='r r1' data-rating='1' data-value='1'></span>
+                                                    <span class='r r1_5' data-rating='15' data-value='1.5'></span>
+                                                    <span class='r r2' data-rating='2' data-value='2'></span>
+                                                    <span class='r r2_5' data-rating='25' data-value='2.5'></span>
+                                                    <span class='r r3' data-rating='3' data-value='3'></span>
+                                                    <span class='r r3_5' data-rating='35' data-value='3.5'></span>
+                                                    <span class='r r4' data-rating='4' data-value='4'></span>
+                                                    <span class='r r4_5' data-rating='45' data-value='4.5'></span>
+                                                    <span class='r r5' data-rating='5' data-value='5'></span>
+                                                </span>
+                                            </div>
+                                            <div class="values">
+                                                <div>
+                                                    <label>Rating</label><input type="text" id="rating1" value="0" />
+                                                </div>
+                                                <div>
+                                                    <label>Rating Value</label><input type="text" name="rating" id="rating_val1" value="0" />
+                                                </div>
+                                            </div>
+                                            <div class="values">
+                                            <div>
+                                                <input type="text" id="rating" value="0" hidden />
+                                            </div>
+                                            <div>
+                                                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+                                            </div>
+                                        </div>*@
                                 </div>
                             </div>
                             <div class="row">
@@ -176,13 +193,13 @@
                                         </div>
                                     </div>
                                     @*<div class="values">
-            <div>
-                <input asp-for="Review.Rating" type="text" id="rating" value="0" hidden />
-            </div>
-            <div>
-                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
-            </div>
-        </div>*@
+                                            <div>
+                                                <input asp-for="Review.Rating" type="text" id="rating" value="0" hidden />
+                                            </div>
+                                            <div>
+                                                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
+                                            </div>
+                                        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -288,35 +305,43 @@
         </div>
     </div>
     <!--container section for how the review should look like-->
-    <h1>Your Reviews</h1>
+    <h2 class="mt-2 text-center">Your Reviews</h2>
     <div class="card mt-4">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
-                    @foreach (var item in Model.ReviewData.Reviews) {
+                    @foreach (var item in Model.ReviewData.Reviews)
+                    {
                         <p>
                             <a class="float-left"><strong>@item.Program.Name</strong></a>
                             @{ string rating = "";
-                                for (var i = 0; i < 5; i++) {
-                                    if (i < item.Rating) {
-                                        if (item.Rating % 1 > 0) {
-                                             rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
-                                        } else {
+                                for (var i = 0; i < 5; i++)
+                                {
+                                    if (i < item.Rating)
+                                    {
+                                        if (item.Rating % 1 > 0)
+                                        {
+                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                        }
+                                        else
+                                        {
                                             rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
-                                        }                                        
+                                        }
                                     }
                                 }
                                 @Html.Raw(rating);
-                                                                    <br />
-                                    <a class="float-left"><strong>@item.Course.Name</strong></a>
+                                <br />
+                                <a class="float-left"><strong>@item.Course.Name</strong></a>
                             }
                         </p>
                         <div class="clearfix"></div>
                         <p>@item.Description</p>
-                        @if (item.Users.TypeId == 1) {
+                        @if (item.Users.TypeId == 1)
+                        {
                             <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                         }
-                        else if (item.Users.TypeId == 2) {
+                        else if (item.Users.TypeId == 2)
+                        {
                             <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                         }
                         <div>

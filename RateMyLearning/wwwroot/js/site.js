@@ -1,4 +1,27 @@
-﻿jQuery(document).ready(function ($) {
+﻿//star rating system js - this is the newer code for the star rating system Mar.20/20
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function () {
+    return $star_rating.each(function () {
+        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+            return $(this).removeClass('fa-star-o').addClass('fa-star');
+        } else {
+            return $(this).removeClass('fa-star').addClass('fa-star-o');
+        }
+    });
+};
+
+$star_rating.on('click', function () {
+    $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+    return SetRatingStar();
+});
+
+SetRatingStar();
+$(document).ready(function () {
+
+});
+//star rating system - this is the first version
+jQuery(document).ready(function ($) {
     $('.rating_stars span.r').hover(function () {
         // get hovered value
         var rating = $(this).data('rating');
@@ -31,6 +54,15 @@
             else if (rating == low) $(this).addClass('active-low');
         });
     }
+
+    //accordion
+    $(".open-button").on("click", function () {
+        $(this).closest('.collapse-group').find('.collapse').collapse('show');
+    });
+
+    $(".close-button").on("click", function () {
+        $(this).closest('.collapse-group').find('.collapse').collapse('hide');
+    });
 
     // find and populate programs depending on whichever school was selected
     $('#school').change(function () {

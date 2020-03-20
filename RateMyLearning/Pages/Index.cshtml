@@ -15,8 +15,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="intro-text">
-                            <h1 class="font-weight-light text-dark mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
-                            <p class="lead text-dark mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
+                            <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
+                            <p class="lead text-light mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
                             <a class="btn text-white js-scroll-trigger btn-xl text-uppercase" asp-area="" asp-page="Reviews/Index">Create Review</a>
                         </div>
                     </div>
@@ -54,25 +54,48 @@
                                 </div>
                                 <div class="modal-body">
                                     <h2 class="text-sm-center">Select one to proceed to reviews</h2>
-                                    <div class="accordion" id="accordion">
-                                        <!--Accoridan Items Start Here-->
-
+                                    <!--<div class="accordion" id="accordion">-->
+                                   
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+                                        <!-- Accordion card -->
                                         <div class="card">
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
-                                                <a class="card-title">Computer Programming </a>
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingTwo1">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1"
+                                                   aria-expanded="false" aria-controls="collapseTwo1">
+                                                    <h5 class="mb-0">
+                                                        Computer Programming<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseOne" class="card-body collapse" data-parent="#accordion">
-                                                <p>
+                                            <!-- Card body -->
+                                            <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1"
+                                                 data-parent="#accordionEx1">
+                                                <div class="card-body">
                                                     Computer Programmer is a two-year diploma program designed for students who wish to learn the latest skills needed by business application developers in industry,
                                                     but want to graduate sooner than allowed by the three-year Computer Programmer/Analyst program. The program emphasizes problem-solving skills using the latest versions
                                                     of Microsoft, Java and open-source software to develop business and web applications. Object-oriented analysis, design, agile methodologies and programming techniques
                                                     are mastered and applied throughout the program.
-                                                </p>
+                                                </div>
+                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                             </div>
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseTwo">
-                                                <a class="card-title">Computer Application Security</a>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingTwo2">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21"
+                                                   aria-expanded="false" aria-controls="collapseTwo21">
+                                                    <h5 class="mb-0">
+                                                        Computer Application Security<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                            <!-- Card body -->
+                                            <div id="collapseTwo21" class="collapse" role="tabpanel" aria-labelledby="headingTwo21"
+                                                 data-parent="#accordionEx1">
                                                 <div class="card-body">
                                                     Due to the increasing complexity of computer transactions and society's increasing dependence on eCommerce, as well as the proliferation of computing devices,
                                                     the computer security field has become a high profile and rapidly growing, industry. Work in this field is constantly evolving and leads to a range of career options,
@@ -82,32 +105,69 @@
                                                     management skills so that graduates will also be able to access careers as corporate security analysts and managers. Students benefit from specialized courses taught by highly qualified
                                                     industry experts and as a result, should expect to have classes scheduled up until 8:00 p.m.
                                                 </div>
+                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                             </div>
-
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseThree">
-                                                <a class="card-title">Computer Programming and Analysis</a>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingThree31">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+                                                   aria-expanded="false" aria-controls="collapseThree31">
+                                                    <h5 class="mb-0">
+                                                        Computer Programming and Analysis<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <!-- Card body -->
+                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+                                                 data-parent="#accordionEx1">
                                                 <div class="card-body">
                                                     Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
                                                     using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
                                                     and programming techniques are mastered and applied throughout the program.
                                                 </div>
+                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                             </div>
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseFour">
-                                                <a class="card-title">Information Technology Infrastructure</a>
+                                        </div>
+                                        <!-- Accordion card -->
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingThree31">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+                                                   aria-expanded="false" aria-controls="collapseThree31">
+                                                    <h5 class="mb-0">
+                                                        Information Technology Infrastructure<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+                                            <!-- Card body -->
+                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+                                                 data-parent="#accordionEx1">
                                                 <div class="card-body">
                                                     Information technology workers need a broad range of practical skills to enhance concepts and principles that are often the focus of post-secondary study.
                                                     This two-semester Ontario College Graduate Certificate program concentrates on hands-on application of network and systems administration practices and techniques
                                                     commonly employed in modern IT enterprise infrastructure management.
                                                 </div>
+                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                             </div>
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseFive">
-                                                <a class="card-title">Information Technology Network Security</a>
+                                        </div>
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingThree31">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+                                                   aria-expanded="false" aria-controls="collapseThree31">
+                                                    <h5 class="mb-0">
+                                                        Information Technology Network Security<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+
+                                            <!-- Card body -->
+                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+                                                 data-parent="#accordionEx1">
                                                 <div class="card-body">
                                                     Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
                                                     and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
@@ -116,11 +176,23 @@
                                                     policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
                                                     data and network systems safe. Students benefit from spec
                                                 </div>
+                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                             </div>
-                                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseSix">
-                                                <a class="card-title">IT Innovation and Design</a>
+                                        </div>
+                                        <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingThree31">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+                                                   aria-expanded="false" aria-controls="collapseThree31">
+                                                    <h5 class="mb-0">
+                                                        IT Innovation and Design<i class="fas fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
                                             </div>
-                                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+
+                                            <!-- Card body -->
+                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+                                                 data-parent="#accordionEx1">
                                                 <div class="card-body">
                                                     Profound changes to the world of computer applications have created the need for a new kind of software development professional. As a result of explosive growth in the use of mobile devices,
                                                     a growing appetite for consumer applications across all demographics, and emerging digital technologies, there is a need for entrepreneurial savvy within Canadian companies to effectively
@@ -128,8 +200,10 @@
                                                     design and market new and competitive software applications. The optional co-op stream includes four consecutive four-month work terms.
                                                 </div>
                                             </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                         </div>
-                                    </div> <!--Accoridan Items End Here-->
+                                    </div>
+                                    <!-- Accordion wrapper -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
@@ -181,16 +255,21 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-10">
-                        @foreach (var item in Model.ReviewData.Reviews) {
+                        @foreach (var item in Model.ReviewData.Reviews)
+                        {
                             <p>
                                 <a class="float-left"><strong>@item.Program.Name</strong></a>
                                 @{ string rating = "";
-                                    for (var i = 0; i < 5; i++) {
-                                        if (i < item.Rating) {
-                                            if (item.Rating % 1 > 0) {
+                                    for (var i = 0; i < 5; i++)
+                                    {
+                                        if (i < item.Rating)
+                                        {
+                                            if (item.Rating % 1 > 0)
+                                            {
                                                 rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
                                             }
-                                            else {
+                                            else
+                                            {
                                                 rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
                                             }
                                         }
@@ -202,10 +281,12 @@
                             </p>
                             <div class="clearfix"></div>
                             <p>@item.Description</p>
-                            @if (item.Users.TypeId == 1) {
+                            @if (item.Users.TypeId == 1)
+                            {
                                 <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                             }
-                            else if (item.Users.TypeId == 2) {
+                            else if (item.Users.TypeId == 2)
+                            {
                                 <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                             }
                         }

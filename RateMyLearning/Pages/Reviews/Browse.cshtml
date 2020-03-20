@@ -1,0 +1,134 @@
+﻿@page
+@model RateMyLearning.Pages.Reviews.BrowseModel
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Browse reviews";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-light mr-8 intro-lead-in text-uppercase">Browse reviews</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--tab panels for review forms-->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <nav class="border border-secondary">
+                <div class="nav nav-tabs nav-fill">
+                    <a class="nav-item text-uppercase text-white">Display reviews</a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <input class="form-control" id="departament" name="departament" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="campus" name="campus" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="type" name="type" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container section for how the review should look like-->
+    <div class="card mt-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    @foreach (var item in Model.ReviewData.Reviews)
+                    {
+                        <p>
+                            <a class="float-left"><strong>@item.Program.Name</strong></a>
+                            @{ string rating = "";
+                                for (var i = 0; i < 5; i++)
+                                {
+                                    if (i < item.Rating)
+                                    {
+                                        if (item.Rating % 1 > 0)
+                                        {
+                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                        }
+                                        else
+                                        {
+                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                        }
+                                    }
+                                }
+                                @Html.Raw(rating);
+                                <br />
+                                <a class="float-left"><strong>@item.Course.Name</strong></a>
+                            }
+                        </p>
+                        <div class="clearfix"></div>
+                        <p>@item.Description</p>
+                        @if (item.Users.TypeId == 1)
+                        {
+                            <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                        }
+                        else if (item.Users.TypeId == 2)
+                        {
+                            <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                        }
+                        <div>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
+                            <p class="text-danger">@Model.ErrorMessage</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+
