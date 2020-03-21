@@ -14,25 +14,7 @@
     padding-right: 20px;
     height: 230px;
 }
-.accordion .card-header:after {
-    background-color: #3d5a80;
-    float: right !important;
-    font-family: fontawesome;
-    content: "\f068";
-    padding-right: 5px;
-}
 
-.accordion .card-header.collapsed:after {
-    background-color: #3d5a80;
-    content: "\f067";
-}
-
-.card-header {
-    background-color: #3d5a80;
-    border: 15px solid transparent;
-    border-color: white;
-    
-}
 .btn {
     background-color: #3d5a80;
 }
@@ -69,7 +51,6 @@ nav > div a.nav-item.nav-link.active:after
   border-top-color: #3d5a80 ;
 }
 .tab-content{
-  background: #fff;
     line-height: 25px;
     border: 1px solid #ddd;
     border-top:5px solid #3d5a80;
@@ -99,6 +80,13 @@ nav > div a.nav-item.nav-link:focus
     color: #918f8f;
     position: relative;
 }
+.star-rating {
+    line-height: 32px;
+    font-size: 1.25em;
+}
+    .star-rating .fa-star {
+        color: #ee6c4d;
+    }
 
     .rating_stars span .fa, .rating_stars span.active-low .fa-star-o, .rating_stars span.active-high .fa-star-o {
         display: none;

@@ -1,40 +1,30 @@
 ﻿jQuery(document).ready(function ($) {
-    $('.rating_stars span.r').hover(function () {
-        // get hovered value
-        var rating = $(this).data('rating');
-        var value = $(this).data('value');
-        $(this).parent().attr('class', '').addClass('rating_stars').addClass('rating_' + rating);
-        highlight_star(value);
-    }, function () {
-        // get hidden field value
-        var rating = $("#rating").val();
-        var value = $("#rating_val").val();
-        $(this).parent().attr('class', '').addClass('rating_stars').addClass('rating_' + rating);
-        highlight_star(value);
-    }).click(function () {
-        // Set hidden field value
-        var value = $(this).data('value');
-        $("#rating_val").val(value);
-        $("#elective_rating_val").val(value);
-        $("#continuing_education_rating_val").val(value);
+    var $star_rating = $('.star-rating .fa');
 
-        var rating = $(this).data('rating');
-        $("#rating").val(rating);
-        $("#elective_rating").val(rating);
-        $("#continuing_education_rating").val(rating);
+    var SetRatingStar = function () {
+        return $star_rating.each(function () {
+            if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                return $(this).removeClass('fa-star-o').addClass('fa-star');
+            } else {
+                return $(this).removeClass('fa-star').addClass('fa-star-o');
+            }
+        });
+    };
 
-        highlight_star(value);
+    $star_rating.on('click', function () {
+        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+        return SetRatingStar();
+    });
+    SetRatingStar();
+
+    //accordion
+    $(".open-button").on("click", function () {
+        $(this).closest('.collapse-group').find('.collapse').collapse('show');
     });
 
-    var highlight_star = function (rating) {
-        $('.rating_stars span.s').each(function () {
-            var low = $(this).data('low');
-            var high = $(this).data('high');
-            $(this).removeClass('active-high').removeClass('active-low');
-            if (rating >= high) $(this).addClass('active-high');
-            else if (rating == low) $(this).addClass('active-low');
-        });
-    }
+    $(".close-button").on("click", function () {
+        $(this).closest('.collapse-group').find('.collapse').collapse('hide');
+    });
 
     // find and populate programs depending on whichever school was selected
     $('#school').change(function () {

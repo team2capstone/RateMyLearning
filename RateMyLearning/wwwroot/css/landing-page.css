@@ -22,12 +22,12 @@ h6 {
 }
 
 header.masthead {
-  position: relative;
-  background-color: #343a40;
- /* background: url("../img/bg-banner.jpg") no-repeat center center;**/
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+    position: relative;
+    background-color: #343a40;
+    /* background: linear-gradient(rgba(0,0,0,5), rgba(0,0,0,0.3)),url(../img/bg-banner.jpg) no-repeat center center**/
+    background-size: cover;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
 header.masthead .overlay {
@@ -73,3 +73,4 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+

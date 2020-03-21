@@ -1,16 +1,36 @@
-﻿@page 
+﻿@page
+
 @model RateMyLearning.Pages.Reviews.EditModel
 @{
-    ViewData["Title"] = "Create new review";
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Edit review";
 }
 
-<header>
-    <h1>Edit your review</h1>
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Edit your review</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-xl-12 ">
+            <nav class="border border-secondary">
+                <div class="nav nav-tabs nav-fill">
+                    <a class="nav-item text-uppercase text-white">Edit review</a>
+                </div>
+            </nav>
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <form method="post">
