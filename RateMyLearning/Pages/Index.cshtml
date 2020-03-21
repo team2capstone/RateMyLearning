@@ -16,8 +16,8 @@
                     <div class="col">
                         <div class="intro-text">
                             <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in">Share your honest experience with us</h1>
-                            <p class="lead text-light mb-4 intro-heading">We care about student success and want them to have the best educational experience possible</p>
-                            <a class="btn text-white js-scroll-trigger btn-xl text-uppercase" asp-area="" asp-page="Reviews/Index">Create Review</a>
+                            <h2 class="h3 lead text-light mb-4 intro-heading" style="font-family:'Agency FB'">We care about student success and want them to have the best educational experience possible</h2>
+                            <a class="btn text-white js-scroll-trigger btn-lg text-uppercase" style="font-family:'Agency FB'" asp-page="/Reviews/Index">Create Review</a>
                         </div>
                     </div>
                 </div>
@@ -35,14 +35,10 @@
               aria-label="Search">
           </form>-->
         <div class="row">
-            <div class="col border border-secondary mb-3 mt-5 mr-2">
+            <div class="col border border-secondary mb-2 mt-5 mr-2">
                 <!--Side col for 'Areas of Interest'-->
-                <h3 class="text-center mt-2">Browse by Areas of Interest</h3>
-                <form class="form-inline d-flex justify-content-center md-form form-sm">
-                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                           aria-label="Search">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </form>
+                <h3 class="text-center mt-2" style="font-family:'Agency FB'">Browse by Areas of Interest</h3>
+                
                 <div class="btn-group mt-3 mb-3">
                     <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#ITModal">Applied Computer Studies & IT</button>
                     <!--Modal content start; when you click on the button a window will pop up-->
@@ -53,157 +49,123 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body">
-                                    <h2 class="text-sm-center">Select one to proceed to reviews</h2>
-                                    <!--<div class="accordion" id="accordion">-->
-                                   
-                                    <!--Accordion wrapper-->
-                                    <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
-                                        <!-- Accordion card -->
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingTwo1">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1"
-                                                   aria-expanded="false" aria-controls="collapseTwo1">
-                                                    <h5 class="mb-0">
-                                                        Computer Programming<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
-                                            <!-- Card body -->
-                                            <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Computer Programmer is a two-year diploma program designed for students who wish to learn the latest skills needed by business application developers in industry,
-                                                    but want to graduate sooner than allowed by the three-year Computer Programmer/Analyst program. The program emphasizes problem-solving skills using the latest versions
-                                                    of Microsoft, Java and open-source software to develop business and web applications. Object-oriented analysis, design, agile methodologies and programming techniques
-                                                    are mastered and applied throughout the program.
-                                                </div>
-                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
-                                            </div>
+                                    <h2 class="text-sm-center" style="font-family:'Agency FB'">Select one to proceed to reviews</h2>
+                                <div class="accordion" id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    Computer Programming
+                                                </button>
+                                            </h2>
                                         </div>
-                                        <!-- Accordion card -->
-                                        <!-- Accordion card -->
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingTwo2">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21"
-                                                   aria-expanded="false" aria-controls="collapseTwo21">
-                                                    <h5 class="mb-0">
-                                                        Computer Application Security<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
-                                            <!-- Card body -->
-                                            <div id="collapseTwo21" class="collapse" role="tabpanel" aria-labelledby="headingTwo21"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Due to the increasing complexity of computer transactions and society's increasing dependence on eCommerce, as well as the proliferation of computing devices,
-                                                    the computer security field has become a high profile and rapidly growing, industry. Work in this field is constantly evolving and leads to a range of career options,
-                                                    from positions that require a high level of technological sophistication to higher-level management positions. This graduate certificate program will be attractive to graduates
-                                                    of software development programs, who will then learn the application security and networking skills needed to access entry level positions offered by a wide range of software development
-                                                    companies. Students will learn to secure software applications, including networked, web and mobile applications, against threats by malware and hackers. These skills will be augmented with
-                                                    management skills so that graduates will also be able to access careers as corporate security analysts and managers. Students benefit from specialized courses taught by highly qualified
-                                                    industry experts and as a result, should expect to have classes scheduled up until 8:00 p.m.
-                                                </div>
-                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
-                                            </div>
-                                        </div>
-                                        <!-- Accordion card -->
-                                        <!-- Accordion card -->
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingThree31">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
-                                                   aria-expanded="false" aria-controls="collapseThree31">
-                                                    <h5 class="mb-0">
-                                                        Computer Programming and Analysis<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
-                                            <!-- Card body -->
-                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
-                                                    using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
-                                                    and programming techniques are mastered and applied throughout the program.
-                                                </div>
-                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
-                                            </div>
-                                        </div>
-                                        <!-- Accordion card -->
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingThree31">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
-                                                   aria-expanded="false" aria-controls="collapseThree31">
-                                                    <h5 class="mb-0">
-                                                        Information Technology Infrastructure<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
 
-                                            <!-- Card body -->
-                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Information technology workers need a broad range of practical skills to enhance concepts and principles that are often the focus of post-secondary study.
-                                                    This two-semester Ontario College Graduate Certificate program concentrates on hands-on application of network and systems administration practices and techniques
-                                                    commonly employed in modern IT enterprise infrastructure management.
-                                                </div>
-                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingThree31">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
-                                                   aria-expanded="false" aria-controls="collapseThree31">
-                                                    <h5 class="mb-0">
-                                                        Information Technology Network Security<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
-
-                                            <!-- Card body -->
-                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
-                                                    and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
-                                                    to address this growing threat to our network infrastructure. It will provide students with the security background in network technologies, computing hardware, operating and protocols,
-                                                    to harden and further secure such systems from attack. Students will learn to identify threats through audits and supporting technical methods, as well as evaluate and develop appropriate
-                                                    policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
-                                                    data and network systems safe. Students benefit from spec
-                                                </div>
-                                                <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <!-- Card header -->
-                                            <div class="card-header" role="tab" id="headingThree31">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
-                                                   aria-expanded="false" aria-controls="collapseThree31">
-                                                    <h5 class="mb-0">
-                                                        IT Innovation and Design<i class="fas fa-angle-down rotate-icon"></i>
-                                                    </h5>
-                                                </a>
-                                            </div>
-
-                                            <!-- Card body -->
-                                            <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
-                                                 data-parent="#accordionEx1">
-                                                <div class="card-body">
-                                                    Profound changes to the world of computer applications have created the need for a new kind of software development professional. As a result of explosive growth in the use of mobile devices,
-                                                    a growing appetite for consumer applications across all demographics, and emerging digital technologies, there is a need for entrepreneurial savvy within Canadian companies to effectively
-                                                    compete globally. This demands computer professionals with skills in graphic design, content creation, User Experience (UX), software development, marketing, and business models in order to
-                                                    design and market new and competitive software applications. The optional co-op stream includes four consecutive four-month work terms.
-                                                </div>
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                            <div class="card-body">
+                                                Computer Programmer is a two-year diploma program designed for students who wish to learn the latest skills needed by business application developers in industry,
+                                                but want to graduate sooner than allowed by the three-year Computer Programmer/Analyst program. The program emphasizes problem-solving skills using the latest versions
+                                                of Microsoft, Java and open-source software to develop business and web applications. Object-oriented analysis, design, agile methodologies and programming techniques
+                                                are mastered and applied throughout the program.
                                             </div>
                                             <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
                                         </div>
                                     </div>
-                                    <!-- Accordion wrapper -->
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Computer Application Security
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
+                                            <div class="card-body">
+                                                Due to the increasing complexity of computer transactions and society's increasing dependence on eCommerce, as well as the proliferation of computing devices,
+                                                the computer security field has become a high profile and rapidly growing, industry. Work in this field is constantly evolving and leads to a range of career options,
+                                                from positions that require a high level of technological sophistication to higher-level management positions. This graduate certificate program will be attractive to graduates
+                                                of software development programs, who will then learn the application security and networking skills needed to access entry level positions offered by a wide range of software development
+                                                companies. Students will learn to secure software applications, including networked, web and mobile applications, against threats by malware and hackers. These skills will be augmented with
+                                                management skills so that graduates will also be able to access careers as corporate security analysts and managers. Students benefit from specialized courses taught by highly qualified
+                                                industry experts and as a result, should expect to have classes scheduled up until 8:00 p.m.
+                                            </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Computer Programming and Analysis
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
+                                                using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
+                                                and programming techniques are mastered and applied throughout the program.
+                                            </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFour">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    Information Technology Infrastructure
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Computer Programmer/Analyst is a three-year advanced diploma program in which students learn the latest skills needed by developers in industry. The program emphasizes problem-solving skills
+                                                using the latest versions of Microsoft, Oracle, Java and open-source software to develop enterprise, internet and mobile applications. Object-oriented analysis, design, agile methodologies
+                                                and programming techniques are mastered and applied throughout the program.
+                                            </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFive">
+                                            <h2 class="mb-0">
+                                                <button class="btn collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    Information Technology Network Security
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
+                                                and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
+                                                to address this growing threat to our network infrastructure. It will provide students with the security background in network technologies, computing hardware, operating and protocols,
+                                                to harden and further secure such systems from attack. Students will learn to identify threats through audits and supporting technical methods, as well as evaluate and develop appropriate
+                                                policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
+                                                data and network systems safe. Students benefit from spec
+                                            </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingSix">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link collapsed text-white btn-block" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    Information Technology Network Security
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                            <div class="card-body">
+                                                Information technology and network infrastructure are targets for malicious activity on a regular basis. News reports about data breaches, security violations, privacy failures
+                                                and other infrastructure failures highlight a growing threat to business and personal information. This one-year, full-time, graduate certificate program is designed
+                                                to address this growing threat to our network infrastructure. It will provide students with the security background in network technologies, computing hardware, operating and protocols,
+                                                to harden and further secure such systems from attack. Students will learn to identify threats through audits and supporting technical methods, as well as evaluate and develop appropriate
+                                                policies to support a strong organizational security posture. This program offers skills that allow graduates to evaluate risk and design infrastructure solutions that keep a business's code,
+                                                data and network systems safe. Students benefit from spec
+                                            </div>
+                                            <a class="float-right mr-2 mb-2" asp-page="Reviews/Browse">Continue to browse reviews</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default text-white" data-dismiss="modal">Close</button>
@@ -226,14 +188,10 @@
                     <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Hospitality & Culinary Arts</button>
                 </div>
             </div>
-            <div class="col border border-secondary mt-5 mb-3">
+            <div class="col border border-secondary mt-5 mb-2">
                 <!--Side col for 'Electives'-->
-                <h3 class="text-center mt-2">Browse Courses & Electives</h3>
-                <form class="form-inline d-flex justify-content-center md-form form-sm">
-                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                           aria-label="Search">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </form>
+                <h3 class="text-center mt-2" style="font-family:'Agency FB'">Browse Courses & Electives</h3>
+                
                 <div class="btn-group mt-3 mb-3 btn-block">
                     <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Electives</button>
                 </div>
@@ -249,7 +207,7 @@
 <section class="py-5">
     <div class="container">
         <div class="col">
-            <h2 class="text-center">Most recent reviews</h2>
+            <h2 class="text-center" style="font-family:'Agency FB'">Most recent reviews</h2>
         </div>
         <div class="card mt-4">
             <div class="card-body">
@@ -305,29 +263,29 @@
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto align-items-center">
                 <form class="form-group">
                     <div class="col-xl-12 mx-auto">
-                        <h2 class="mb-4 text-center font-weight-light text-white">Contact Us</h2>
+                        <h2 class="mb-4 text-center font-weight-light text-white" style="font-family:'Agency FB'">Contact Us</h2>
                     </div>
                     <div class="row">
                         <div class="col ml-3">
-                            <label for="name" class="h4 text-white">Name:<span class="text-danger">*</span></label>
+                            <label for="name" class="h4 text-white" style="font-family:'Agency FB'">Name:<span class="text-danger">*</span></label>
                             <input class="form-control" id="name" name="name" type="text">
                         </div>
 
                         <div class="col mb-4 mr-3">
-                            <label for="email" class="h4 text-white">Email:<span class="text-danger">*</span></label>
+                            <label for="email" class="h4 text-white" style="font-family:'Agency FB'">Email:<span class="text-danger">*</span></label>
                             <input class="form-control" id="email" name="email">
                         </div>
                     </div>
                     <div class="col mb-4 mr-3">
-                        <label for="subject" class="h4 text-white">Subject:<span class="text-danger">*</span></label>
+                        <label for="subject" class="h4 text-white" style="font-family:'Agency FB'">Subject:<span class="text-danger">*</span></label>
                         <input class="form-control" id="subject" name="subject">
                     </div>
                     <div class="col mb-3">
-                        <label for="message" class="h4 text-white">Message:</label>
+                        <label for="message" class="h4 text-white" style="font-family:'Agency FB'">Message:</label>
                         <textarea class="form-control" name="message" id="message"></textarea>
                     </div>
                     <div class="col mb-3">
-                        <button type="submit" class="btn btn-block btn-lg text-white">Send Message</button>
+                        <button type="submit" class="btn btn-block btn-lg text-white" style="font-family:'Agency FB'">Send Message</button>
                     </div>
                 </form>
             </div>

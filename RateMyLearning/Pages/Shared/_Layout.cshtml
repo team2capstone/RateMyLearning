@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - RATE MY LEARNING</title>
 
     <meta name="description" content="RATE MY LEARNING is a Canadian Organization Review system for Educational Institutions">
-    <meta name="author" content="">
+    <meta name="author" content="Marcus Rodriguez, Catherine Olejarczyk, Fatima Kharodia">
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -39,10 +39,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="Reviews/Browse">Browse</a>
+                            <a class="nav-link" asp-page="/Reviews/Browse">Browse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="Reviews/Index">Create Reviews</a>
+                            <a class="nav-link" asp-page="/Reviews/Index">Create Reviews</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Electives</a>
@@ -58,7 +58,7 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid pr-0 pl-0">
         <main role="main" class="">
             @RenderBody()
         </main>
@@ -145,7 +145,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

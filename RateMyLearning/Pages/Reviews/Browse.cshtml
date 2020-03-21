@@ -14,7 +14,7 @@
             <div class="col-lg-12 text-block">
                 <div class="row">
                     <div class="col">
-                        <h1 class="font-weight-light text-light mr-8 intro-lead-in text-uppercase">Browse reviews</h1>
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Browse reviews</h1>
                     </div>
                 </div>
             </div>
@@ -48,25 +48,14 @@
                                 <div class="col mb-4 ml-3">
                                     <label asp-for="Review.ProgramId" class="h4">Program:</label>
                                     <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
-                                        <option value="none" selected disabled hidden>Select program</option>
+                                        <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
-                                <div class="col mb-4 ml-3">
+                                <div class="col mb-4 ml-3 mr-3">
                                     <label asp-for="Review.CourseId" class="h4">Course:</label>
                                     <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <input class="form-control" id="departament" name="departament" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="campus" name="campus" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="type" name="type" type="hidden">
                                 </div>
                             </div>
                         </div>
