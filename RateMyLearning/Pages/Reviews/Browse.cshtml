@@ -28,7 +28,7 @@
         <div class="col-xl-12 ">
             <nav class="border border-secondary">
                 <div class="nav nav-tabs nav-fill">
-                    <a class="nav-item text-uppercase text-white">Display reviews</a>
+                    <a class="h3 nav-item text-uppercase text-white" style="font-family:'Agency FB'">Display reviews</a>
                 </div>
             </nav>
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -38,7 +38,7 @@
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
                                     <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
@@ -46,13 +46,13 @@
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
                                     <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
                                         <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
                                     <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
