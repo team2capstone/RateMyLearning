@@ -68,7 +68,6 @@
                                             <span class='s' data-low='2.5' data-high='3'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
                                             <span class='s' data-low='3.5' data-high='4'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
                                             <span class='s' data-low='4.5' data-high='5'><i class="fa fa-star-o"></i><i class="fa fa-star-half-o"></i><i class="fa fa-star"></i></span>
-
                                             <span class='r r0_5' data-rating='1' data-value='0.5'></span>
                                             <span class='r r1' data-rating='1' data-value='1'></span>
                                             <span class='r r1_5' data-rating='15' data-value='1.5'></span>
@@ -89,25 +88,6 @@
                                             <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
                                         </div>
                                     </div>
-                                    @*<div class="values">
-            <div>
-                <input type="text" id="rating" value="0" hidden />
-            </div>
-            <div>
-                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
-            </div>
-        </div>*@
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-4 ml-3">
-                                    <input class="form-control" id="departament" name="departament" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="campus" name="campus" type="hidden">
-                                </div>
-                                <div class="col mb-4 mr-3">
-                                    <input class="form-control" id="type" name="type" type="hidden">
                                 </div>
                             </div>
                         </div>
@@ -169,20 +149,12 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <label>Rating</label><input type="text" id="rating" value="0" />
+                                            <label>Rating</label><input type="text" id="elective_rating" value="0" />
                                         </div>
                                         <div>
-                                            <label>Rating Value</label><input type="text" name="rating" id="rating_val" value="0" />
+                                            <label>Rating Value</label><input type="text" name="elective_rating" id="elective_rating_val" value="0" />
                                         </div>
                                     </div>
-                                    @*<div class="values">
-            <div>
-                <input asp-for="Review.Rating" type="text" id="rating" value="0" hidden />
-            </div>
-            <div>
-                <input asp-for="Review.Rating" type="text" name="rating" id="rating_val" value="0" hidden />
-            </div>
-        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -250,10 +222,10 @@
                                     </div>
                                     <div class="values">
                                         <div>
-                                            <input type="text" id="elective-rating" value="0" hidden />
+                                            <label>Rating</label><input type="text" id="continuing_education_rating" value="0" />
                                         </div>
                                         <div>
-                                            <input asp-for="Review.Rating" type="text" name="rating" id="elective-rating_val" value="0" hidden />
+                                            <label>Rating Value</label><input type="text" name="continuing_education_rating" id="continuing_education_rating_val" value="0" />
                                         </div>
                                     </div>
                                 </div>

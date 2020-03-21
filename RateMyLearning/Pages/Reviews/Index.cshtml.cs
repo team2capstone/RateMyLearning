@@ -93,7 +93,7 @@ namespace RateMyLearning.Pages.Reviews {
 
         // Create a review for an elective course
         public async Task<IActionResult> OnPostElectiveAsync() {
-            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);            
+            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);
 
             if (!ModelState.IsValid) {
                 return Page();
@@ -114,7 +114,7 @@ namespace RateMyLearning.Pages.Reviews {
                 CourseId = electiveId,
                 InterestId = selectedElective.Program.InterestId,
                 CampusId = 1,
-                Rating = Convert.ToDecimal(Request.Form["rating"]),
+                Rating = Convert.ToDecimal(Request.Form["elective_rating"]),
                 UsersId = 1
             });
             await _context.SaveChangesAsync();
@@ -135,7 +135,7 @@ namespace RateMyLearning.Pages.Reviews {
                 CourseId = (long)Convert.ToDouble(Request.Form["continuing-education-course"]),
                 InterestId = 1,
                 CampusId = 1,
-                Rating = Convert.ToDecimal(Request.Form["rating"]),
+                Rating = Convert.ToDecimal(Request.Form["continuing_education_rating"]),
                 UsersId = 1
             });
             await _context.SaveChangesAsync();
