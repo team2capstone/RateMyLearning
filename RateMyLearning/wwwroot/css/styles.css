@@ -1,4 +1,5 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+/*CSS FOR ENITER SITE*/
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -72,6 +73,7 @@ nav > div a.nav-item.nav-link:focus
     background-color: #ee6c4d;
     opacity: .9;
 }
+/*CSS FOR STAR RATING SYSTEM*/
 .rating_stars {
     margin-top: 15px;
     display: inline-block;
@@ -84,81 +86,14 @@ nav > div a.nav-item.nav-link:focus
     line-height: 32px;
     font-size: 1.25em;
 }
-    .star-rating .fa-star {
-        color: #ee6c4d;
-    }
+.star-rating .fa-star {
+    color: #ee6c4d;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ee6c47;
+    background-color: #272e38;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+    /*CSS FOR REGISTER AND LOGIN PAGE HERE*/
 
-    .rating_stars span .fa, .rating_stars span.active-low .fa-star-o, .rating_stars span.active-high .fa-star-o {
-        display: none;
-    }
 
-    .rating_stars span .fa-star-o {
-        display: inline-block;
-    }
-
-    .rating_stars span.s.active-high .fa-star {
-        display: inline-block;
-        color: #feb645;
-    }
-
-    .rating_stars span.s.active-low .fa-star-half-o {
-        display: inline-block;
-        color: #feb645;
-    }
-
-    .rating_stars span.r {
-        position: absolute;
-        top: 0;
-        height: 20px;
-        width: 10px;
-        left: 0;
-    }
-
-        .rating_stars span.r.r0_5 {
-            left: 0px;
-        }
-
-        .rating_stars span.r.r1 {
-            left: 10px;
-            width: 11px;
-        }
-
-        .rating_stars span.r.r1_5 {
-            left: 21px;
-            width: 13px;
-        }
-
-        .rating_stars span.r.r2 {
-            left: 34px;
-            width: 12px;
-        }
-
-        .rating_stars span.r.r2_5 {
-            left: 46px;
-            width: 12px;
-        }
-
-        .rating_stars span.r.r3 {
-            left: 58px;
-            width: 11px;
-        }
-
-        .rating_stars span.r.r3_5 {
-            left: 69px;
-            width: 12px;
-        }
-
-        .rating_stars span.r.r4 {
-            left: 81px;
-            width: 12px;
-        }
-
-        .rating_stars span.r.r4_5 {
-            left: 93px;
-            width: 12px;
-        }
-
-        .rating_stars span.r.r5 {
-            left: 105px;
-            width: 12px;
-        }

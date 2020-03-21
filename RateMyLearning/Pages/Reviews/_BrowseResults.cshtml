@@ -18,10 +18,11 @@
     }
 </p>
 <div class="clearfix"></div>
-<p>@Model.Description</p>
+<p class="float-left">@Model.Description</p>
 @if (Model.Users.TypeId == 1) {
-    <p>Student<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
+    <p class="text-right">Student<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
 }
 else if (Model.Users.TypeId == 2) {
-    <p>Faculty<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
+    <p class="text-right">Faculty<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
 }
+<hr/>
