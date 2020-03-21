@@ -1,10 +1,8 @@
 ﻿@page
 @model RateMyLearning.Pages.Reviews.BrowseModel
 @{
-    Layout = "_Layout";
-}
-@{
     ViewData["Title"] = "Browse reviews";
+    Layout = "_Layout";
 }
 
 <!-- Full Page Image Header with Vertically Centered Content -->
@@ -22,24 +20,27 @@
     </div>
 </header>
 
-<!--tab panels for review forms-->
+<!--Filter reviews-->
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-xl-12 ">
-            <nav class="border border-secondary">
-                <div class="nav nav-tabs nav-fill">
-                    <a class="nav-item text-uppercase text-white">Display reviews</a>
-                </div>
-            </nav>
-            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <ul class="nav nav-tabs" id="browseReviewsTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="programs-courses-tab" data-toggle="tab" href="#programs-courses" role="tab" aria-controls="programs-courses" aria-selected="true">Programs & Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="electives-tab" data-toggle="tab" href="#electives" role="tab" aria-controls="electives" aria-selected="false">Electives</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="programs-courses-tab">
                     <form method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
                                     <label asp-for="Review.SchoolId" class="h4">School:</label>
-                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                    <select asp-for="Review.SchoolId" class="form-control" id="f-pc-school" name="f-pc-school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
                                 </div>
@@ -47,77 +48,110 @@
                             <div class="row">
                                 <div class="col mb-4 ml-3">
                                     <label asp-for="Review.ProgramId" class="h4">Program:</label>
-                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="f-pc-program" name="f-pc-program" disabled>
                                         <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
                                 <div class="col mb-4 ml-3 mr-3">
                                     <label asp-for="Review.CourseId" class="h4">Course:</label>
-                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                    <select asp-for="Review.CourseId" class="form-control" id="f-pc-course" name="f-pc-course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="ProgramsCourses" type="submit" class="btn btn-lg text-uppercase text-white">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="electives" role="tabpanel" aria-labelledby="electives-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="f-e-school" name="f-e-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="f-e-course" name="f-e-course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="Electives" type="submit" class="btn btn-lg text-uppercase text-white">Search</button>
+                        </div>
                     </form>
                 </div>
             </div>
+
+
+            @*<nav class="border border-secondary">
+                <div class="nav nav-tabs nav-fill">
+                    <a class="nav-item text-uppercase text-white">Display reviews</a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="f-school" name="f-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="f-program" name="f-program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="f-course" name="f-course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>*@
         </div>
     </div>
-    <!--container section for how the review should look like-->
     <div class="card mt-4">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-10">
-                    @foreach (var item in Model.ReviewData.Reviews)
-                    {
-                        <p>
-                            <a class="float-left"><strong>@item.Program.Name</strong></a>
-                            @{ string rating = "";
-                                for (var i = 0; i < 5; i++)
-                                {
-                                    if (i < item.Rating)
-                                    {
-                                        if (item.Rating % 1 > 0)
-                                        {
-                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
-                                        }
-                                        else
-                                        {
-                                            rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
-                                        }
-                                    }
-                                }
-                                @Html.Raw(rating);
-                                <br />
-                                <a class="float-left"><strong>@item.Course.Name</strong></a>
-                            }
-                        </p>
-                        <div class="clearfix"></div>
-                        <p>@item.Description</p>
-                        @if (item.Users.TypeId == 1)
-                        {
-                            <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                    @if (!(Model.ReviewData is null)) {
+                        foreach (var item in Model.ReviewData.Reviews) {
+                            @await Html.PartialAsync("_BrowseResults", item);
                         }
-                        else if (item.Users.TypeId == 2)
-                        {
-                            <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
-                        }
-                        <div>
-                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
-                            <a asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
-                            <p class="text-danger">@Model.ErrorMessage</p>
-                        </div>
                     }
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
 @section scripts{
     @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/filter-reviews.js" type="text/javascript"></script>
 }
 
 

@@ -20,38 +20,58 @@ namespace RateMyLearning.Pages.Reviews {
         public ReviewViewModel ReviewData { get; set; }
         public SelectList Schools { get; set; }
 
-        public string ErrorMessage { get; set; }
-
         public BrowseModel(ISchoolService schoolService, rmldbContext context) {
             _schoolService = schoolService;
             _context = context;
         }
 
-        public async Task<IActionResult> OnGetAsync(bool? saveChangesError = false) {
-            // populate dropdownlists
-            Schools = new SelectList(_context.School,
-                "Id", "Name");
+        public IActionResult OnGet() {
+            FillSchoolListItem();
+            return Page();
+        }
 
-            // retrieve all of the users reviews
+        public async Task<IActionResult> OnPostProgramsCoursesAsync() {
+            var selectedCourse = (long)Convert.ToDouble(Request.Form["f-pc-course"]);
+
             ReviewData = new ReviewViewModel();
             ReviewData.Reviews = await _context.Review
                 .Include(x => x.Program)
                 .Include(x => x.Course)
                 .Include(x => x.Users)
                 .Include(x => x.Users.Type)
-                .Where(x => x.UsersId == 1)
+                .Where(x => x.CourseId == selectedCourse)
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
-
-            // check for any errors caused by delete/edit
-            if (saveChangesError.GetValueOrDefault()) {
-                ErrorMessage = "Delete failed. Try again";
-            }
+            FillSchoolListItem();
             return Page();
         }
 
-        public JsonResult OnGetPrograms() {
-            return new JsonResult(_schoolService.GetPrograms());
+        public async Task<IActionResult> OnPostElectivesAsync() {
+            var selectedCourse = (long)Convert.ToDouble(Request.Form["f-e-course"]);
+
+            ReviewData = new ReviewViewModel();
+            ReviewData.Reviews = await _context.Review
+                .Include(x => x.Program)
+                .Include(x => x.Course)
+                .Include(x => x.Users)
+                .Include(x => x.Users.Type)
+                .Where(x => x.CourseId == selectedCourse)
+                .OrderByDescending(x => x.CreatedOn)
+                .ToListAsync();
+            FillSchoolListItem();
+            return Page();
+        }
+
+        private SelectList FillSchoolListItem() {
+            // populate dropdownlists
+            return Schools = new SelectList(_context.School,
+                "Id", "Name");
+        }
+
+        public JsonResult OnGetAllPrograms() {
+            var programs = _context.Program
+                .ToList();
+            return new JsonResult(programs);
         }
 
         public JsonResult OnGetCourses() {
@@ -60,90 +80,6 @@ namespace RateMyLearning.Pages.Reviews {
 
         public JsonResult OnGetElectives() {
             return new JsonResult(_schoolService.GetElectives());
-        }
-
-        public async Task<IActionResult> OnGetDeleteAsync(long? id) {
-            if (id == null) {
-                return NotFound();
-            }
-
-            // find review
-            var review = await _context.Review.FindAsync(id);
-
-            // review not found
-            if (Review == null) {
-                return NotFound();
-            }
-
-            // delete review
-            try {
-                _context.Review.Remove(review);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
-            }
-            catch (DbUpdateException) {
-                return RedirectToAction("./Index",
-                     new { id, saveChangesError = true }); ;
-            }
-        }
-
-        public async Task<IActionResult> OnPostAsync() {
-            // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
-            // for whaterver reason instead of the selected value.
-            long programId = (long)Convert.ToDouble(Request.Form["program"]);
-            long schoolId = (long)Convert.ToDouble(Request.Form["school"]);
-            long courseId = (long)Convert.ToDouble(Request.Form["course"]);
-            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
-
-            if (!ModelState.IsValid) {
-                return Page();
-            }
-
-            // create course review
-            _context.Review.Add(new Review {
-                Description = Review.Description,
-                ProgramId = programId,
-                SchoolId = schoolId,
-                CourseId = courseId,
-                InterestId = 1,
-                CampusId = 1,
-                Rating = rating,
-                UsersId = 1
-            });
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
-        }
-
-        public async Task<IActionResult> OnPostElectiveAsync() {
-            // TODO: use ModelBinding instead of this. Values from the selectlist are coming back as '0'
-            // for whaterver reason instead of the selected value.
-            long electiveId = (long)Convert.ToDouble(Request.Form["elective"]);
-            decimal rating = Convert.ToDecimal(Request.Form["rating"]);
-
-            if (!ModelState.IsValid) {
-                return Page();
-            }
-
-            // find the selected elective's program and interest id
-            var electives = await _context.Course
-                .Include(i => i.Program)
-                    .ThenInclude(i => i.Interest)
-                .ToListAsync();
-            var selectedElective = electives.FirstOrDefault(s => s.Id == electiveId);
-
-            // create elective review
-            _context.Review.Add(new Review {
-                Description = Review.Description,
-                ProgramId = selectedElective.ProgramId,
-                SchoolId = selectedElective.Program.Interest.SchoolId,
-                CourseId = electiveId,
-                InterestId = selectedElective.Program.InterestId,
-                CampusId = 1,
-                Rating = rating,
-                UsersId = 1
-            });
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
         }
     }
 }
