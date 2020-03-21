@@ -26,7 +26,11 @@ namespace RateMyLearning.Services {
         /// </summary>
         /// <returns>List<Program></returns>
         public IEnumerable<RateMyLearning.Data.Models.Program> GetPrograms() {
+            // filter out continuing education and elective programs
+            var filter = new[] { "elective", "continuing education" };
+
             var programs = _context.Program
+                .Where(x => !filter.Contains(x.Keywords))
                 .ToList();
             return programs;
         }
