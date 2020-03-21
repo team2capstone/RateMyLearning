@@ -43,7 +43,7 @@
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
                                     <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
@@ -51,19 +51,19 @@
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
                                     <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
                                         <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
                                     <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label asp-for="Review.Description" class="h4">Description:</label>
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
                             <p>
                                 How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
                                 Do you feel there's need for improvement? (500 characters)
@@ -91,7 +91,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -102,7 +102,7 @@
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
                                     <select asp-for="Review.SchoolId" class="form-control" id="elective-school" name="elective-school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
@@ -110,13 +110,13 @@
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.CourseId" class="h4">Elective:</label>
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Elective:</label>
                                     <select asp-for="Review.CourseId" class="form-control" id="elective" name="elective" disabled>
                                         <option value="none" selected disabled hidden>Select elective</option>
                                     </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -135,13 +135,16 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label asp-for="Review.Description" class="h4">Description:</label>
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
                             <p>
                                 How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
                                 Do you feel there's need for improvement? (500 characters)
                             </p>
                             <textarea asp-for="Review.Description" class="form-control"></textarea>
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="Elective" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -152,7 +155,7 @@
                         <div class="">
                             <div class="row">
                                 <div class="col mb-4 ml-3 mr-3">
-                                    <label asp-for="Review.SchoolId" class="h4">School:</label>
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
                                     <select asp-for="Review.SchoolId" class="form-control" id="continuing-education-school" name="continuing-education-school" asp-items="@Model.Schools">
                                         <option value="none" selected disabled hidden>Select school</option>
                                     </select>
@@ -160,19 +163,19 @@
                             </div>
                             <div class="row">
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.ProgramId" class="h4">Program:</label>
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
                                     <select asp-for="Review.ProgramId" class="form-control" id="continuing-education-program" name="continuing-education-program" disabled>
                                         <option value="none" selected disabled hidden>Select program</option>>
                                     </select>
                                 </div>
                                 <div class="col mb-4 ml-3">
-                                    <label asp-for="Review.CourseId" class="h4">Course:</label>
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
                                     <select asp-for="Review.CourseId" class="form-control" id="continuing-education-course" name="continuing-education-course" disabled>
                                         <option value="none" selected disabled hidden>Select course</option>
                                     </select>
                                 </div>
                                 <div class="col mb-4 mr-3">
-                                    <label asp-for="Review.Rating" class="h4">Choose rating:<span class="text-danger">*</span></label>
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger">*</span></label>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -191,7 +194,7 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <label asp-for="Review.Description" class="h4">Description:</label>
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
                             <p>
                                 How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
                                 Do you feel there's need for improvement? (500 characters)
@@ -200,7 +203,7 @@
                             <span asp-validation-for="Review.Description" class="text-danger"></span>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white">Post Review</button>
+                            <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                     </form>
                 </div>
@@ -208,7 +211,7 @@
         </div>
     </div>
     <!--Container that shows all of the user's reviews-->
-    <h2 class="mt-2 text-center">Your Reviews</h2>
+    <h2 class="mt-2 text-center" style="font-family:'Agency FB'">Your Reviews</h2>
     <div class="card mt-4">
         <div class="card-body">
             <div class="row">
