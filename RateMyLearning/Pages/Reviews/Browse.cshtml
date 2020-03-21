@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="ProgramsCourses" type="submit" class="btn btn-lg text-uppercase text-white">Search</button>
+                            <button asp-page-handler="ProgramsCourses" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Search</button>
                         </div>
                     </form>
                 </div>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="col mb-3">
-                            <button asp-page-handler="Electives" type="submit" class="btn btn-lg text-uppercase text-white">Search</button>
+                            <button asp-page-handler="Electives" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Search</button>
                         </div>
                     </form>
                 </div>
@@ -95,11 +95,13 @@
         </div>
     </div>
     <div class="card mt-4">
-        <div class="card-body">
+        <div class="card-body ml-5 mr-5">
             <div class="row">
-                <div class="col-md-10">
-                    @if (!(Model.ReviewData is null)) {
-                        foreach (var item in Model.ReviewData.Reviews) {
+                <div class="col-sm-12">
+                    @if (!(Model.ReviewData is null))
+                    {
+                        foreach (var item in Model.ReviewData.Reviews)
+                        {
                             @await Html.PartialAsync("_BrowseResults", item);
                         }
                     }
