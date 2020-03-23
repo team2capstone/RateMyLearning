@@ -209,9 +209,9 @@
             <h2 class="text-center" style="font-family:'Agency FB'">Most recent reviews</h2>
         </div>
         <div class="card mt-4">
-            <div class="card-body">
+            <div class="card-body ml-5 mr-5">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-sm-12">
                         @foreach (var item in Model.ReviewData.Reviews)
                         {
                             <p>
@@ -237,15 +237,16 @@
                                 }
                             </p>
                             <div class="clearfix"></div>
-                            <p>@item.Description</p>
+                            <p class="float-left">@item.Description</p>
                             @if (item.Users.TypeId == 1)
                             {
-                                <p>Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                                <p class="text-right">Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                             }
                             else if (item.Users.TypeId == 2)
                             {
-                                <p>Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                                <p class="text-right">Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                             }
+                            <hr/>
                         }
                     </div>
                 </div>

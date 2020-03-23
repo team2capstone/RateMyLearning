@@ -94,6 +94,10 @@ nav > div a.nav-item.nav-link:focus
     background-color: #272e38;
     border-color: #dee2e6 #dee2e6 #fff;
 }
-/*CSS FOR REGISTER AND LOGIN PAGE HERE*/
-
-
+/*CSS FOR LOGIN PAGE HERE*/
+.bg-image {
+    background-image: url('../img/computer.jpg');
+    background-size: cover;
+    background-position: center;
+}
+/*CSS FOR REGISTER HERE*/

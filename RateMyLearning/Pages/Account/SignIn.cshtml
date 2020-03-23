@@ -1,2 +1,42 @@
 ﻿@page
 @model RateMyLearning.Pages.Account.SignInModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+<div class="container-fluid">
+    <div class="row no-gutter">
+
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="login-heading mb-4 text-center" style="font-family:'Agency FB'">Welcome back!</h1>
+                            <form>
+                                <div class="form-label-group">
+
+                                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
+                                </div>
+
+                                <div class="form-label-group">
+
+                                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                </div>
+                                <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mb-2 text-white" type="submit">Sign in</button>
+                                <div class="text-center">
+                                    <a class="small" href="#">Forgot password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    </div>
+</div>
