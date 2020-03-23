@@ -101,3 +101,19 @@ nav > div a.nav-item.nav-link:focus
     background-position: center;
 }
 /*CSS FOR REGISTER HERE*/
+
+.btn-floating.btn-sm i {
+    font-size: .96154rem;
+    line-height: 36.15385px;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #ee6c4d;
+    text-align: center;
+}
+.fa, .fas {
+    font-weight: 900;
+}
+
