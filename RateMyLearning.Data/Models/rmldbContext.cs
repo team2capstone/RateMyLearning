@@ -3,6 +3,7 @@ using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace RateMyLearning.Data.Models {
     public partial class rmldbContext : DbContext {
@@ -20,13 +21,6 @@ namespace RateMyLearning.Data.Models {
         public virtual DbSet<School> School { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UsersType> UsersType { get; set; }
-
-        // setup connection
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            if (!optionsBuilder.IsConfigured) {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=rmldb;Username=postgres;Password=admin");
-            }
-        }
 
         // map out the database
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
