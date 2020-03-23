@@ -97,11 +97,19 @@ nav > div a.nav-item.nav-link:focus
 /*CSS FOR LOGIN PAGE HERE*/
 .bg-image {
     background-image: url('../img/computer.jpg');
+    min-height: 500px;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 /*CSS FOR REGISTER HERE*/
-
+.bg-image {
+    background-image: url('../img/computer.jpg');
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .btn-floating.btn-sm i {
     font-size: .96154rem;
     line-height: 36.15385px;
