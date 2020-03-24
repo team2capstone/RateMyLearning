@@ -40,7 +40,6 @@ namespace RateMyLearning.Pages.Reviews {
                 .Where(x => x.UsersId == 1)
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
-
             return Page();
         }
 
