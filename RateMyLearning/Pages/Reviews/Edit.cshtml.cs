@@ -13,15 +13,13 @@ namespace RateMyLearning.Pages.Reviews {
     public class EditModel : PageModel {
         private readonly rmldbContext _context;
 
-        [BindProperty]
-        public Review Review { get; set; }
+        [BindProperty] public Review Review { get; set; }
 
         public EditModel(rmldbContext context) {
             _context = context;
         }
 
         public async Task<IActionResult> OnGetAsync(long? id) {
-
             if (id == null) {
                 return NotFound();
             }
@@ -35,7 +33,6 @@ namespace RateMyLearning.Pages.Reviews {
             if (Review == null) {
                 return NotFound();
             }
-
             return Page();
         }
 

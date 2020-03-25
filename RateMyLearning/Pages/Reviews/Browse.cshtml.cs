@@ -15,8 +15,7 @@ namespace RateMyLearning.Pages.Reviews {
         private readonly rmldbContext _context;
         private readonly ISchoolService _schoolService;
 
-        [BindProperty(SupportsGet = true)]
-        public Review Review { get; set; }
+        [BindProperty(SupportsGet = true)] public Review Review { get; set; }
         public ReviewViewModel ReviewData { get; set; }
         public SelectList Schools { get; set; }
 

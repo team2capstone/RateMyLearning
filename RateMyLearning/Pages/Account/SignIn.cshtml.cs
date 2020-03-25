@@ -10,8 +10,7 @@ using RateMyLearning.Data.Models;
 namespace RateMyLearning.Pages.Account {
     public class SignInModel : PageModel {
         private readonly rmldbContext _context;
-        [BindProperty]
-        public Users Users { get; set; }
+        [BindProperty] public Users Users { get; set; }
         public string ErrorInvalidLogin { get; set; }
 
         public SignInModel(rmldbContext context) {

@@ -16,8 +16,7 @@ namespace RateMyLearning.Pages.Reviews {
         private readonly rmldbContext _context;
         private readonly ISchoolService _schoolService;
 
-        [BindProperty(SupportsGet = true)]
-        public Review Review { get; set; }
+        [BindProperty(SupportsGet = true)] public Review Review { get; set; }
         public ReviewViewModel ReviewData { get; set; }
         public SelectList Schools { get; set; }
         public string ErrorNotSignedIn { get; set; }
@@ -86,6 +85,7 @@ namespace RateMyLearning.Pages.Reviews {
 
             var currentSignedInUser = _schoolService.GetSignedInUserDetails(HttpContext);
 
+            // user not signed in
             if (currentSignedInUser == null) {
                 ErrorNotSignedIn = "Please <a href='/Account/SignIn'>sign in</a> to create a review.";
                 return Page();
@@ -114,6 +114,14 @@ namespace RateMyLearning.Pages.Reviews {
                 return Page();
             }
 
+            var currentSignedInUser = _schoolService.GetSignedInUserDetails(HttpContext);
+
+            // user not signed in
+            if (currentSignedInUser == null) {
+                ErrorNotSignedIn = "Please <a href='/Account/SignIn'>sign in</a> to create a review.";
+                return Page();
+            }
+
             // find the selected elective's program and interest id
             var electives = await _context.Course
                 .Include(i => i.Program)
@@ -130,7 +138,7 @@ namespace RateMyLearning.Pages.Reviews {
                 InterestId = selectedElective.Program.InterestId,
                 CampusId = 1,
                 Rating = Convert.ToDecimal(Request.Form["elective_rating"]),
-                UsersId = 1
+                UsersId = currentSignedInUser.Id
             });
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
@@ -139,6 +147,14 @@ namespace RateMyLearning.Pages.Reviews {
         // Create a review for a continuing education program/course
         public async Task<IActionResult> OnPostContinuingEducationAsync() {
             if (!ModelState.IsValid) {
+                return Page();
+            }
+
+            var currentSignedInUser = _schoolService.GetSignedInUserDetails(HttpContext);
+
+            // user not signed in
+            if (currentSignedInUser == null) {
+                ErrorNotSignedIn = "Please <a href='/Account/SignIn'>sign in</a> to create a review.";
                 return Page();
             }
 
@@ -151,7 +167,7 @@ namespace RateMyLearning.Pages.Reviews {
                 InterestId = 1,
                 CampusId = 1,
                 Rating = Convert.ToDecimal(Request.Form["continuing_education_rating"]),
-                UsersId = 1
+                UsersId = currentSignedInUser.Id
             });
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");

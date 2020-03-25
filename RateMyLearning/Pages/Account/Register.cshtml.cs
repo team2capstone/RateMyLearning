@@ -11,8 +11,7 @@ namespace RateMyLearning.Pages.Account {
     public class RegisterModel : PageModel {
         private readonly rmldbContext _context;
 
-        [BindProperty]
-        public RegisterUserViewModel Users { get; set; }
+        [BindProperty] public RegisterUserViewModel Users { get; set; }
 
         public RegisterModel(rmldbContext context) {
             _context = context;
