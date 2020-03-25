@@ -5,10 +5,10 @@ Rate My Learning is an educational rating tool that will help students learn mor
 ## Built With
 
 * [.NET Core](https://dotnet.microsoft.com/download) - Runtime cross-platform framework
-* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet) - The web framework used
+* [Entity Framework Core](https://docs.microsoft.com/en-us/ef/#pivot=efcore) - Object relational mapper
 * [Bootstrap](https://getbootstrap.com/) - Front end framework
-* [Azure](https://azure.microsoft.com/en-ca/) - Used to store our database in the cloud
-* [Bootstrap](https://getbootstrap.com/) - Front end framework
+* [ElephantSQL](https://www.elephantsql.com/) - Used to store our database in the cloud
+* [PostgreSQL](https://www.postgresql.org/) - Popular open source database
 
 ## Authors
   
