@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/create"
 @model RateMyLearning.Pages.Reviews.IndexModel
 @{
     var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
@@ -43,7 +43,7 @@
                 <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="programs-courses-tab">
                     <form method="post">
                         <!--TODO: If we have time, find way to use textboxes instead of lists so users can
-                        create a review for a program that is not listed-->
+    create a review for a program that is not listed-->
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
@@ -98,7 +98,9 @@
                         <div class="col mb-3">
                             <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
-                        <p class="col mb-3 text-danger">@Html.Raw(Model.ErrorNotSignedIn)</p>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                        }
                     </form>
                 </div>
                 <!--tab for electives-->
@@ -152,6 +154,9 @@
                         <div class="col mb-3">
                             <button asp-page-handler="Elective" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                        }
                     </form>
                 </div>
                 <!--tab for continuing education-->
@@ -211,6 +216,9 @@
                         <div class="col mb-3">
                             <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                        }
                     </form>
                 </div>
             </div>

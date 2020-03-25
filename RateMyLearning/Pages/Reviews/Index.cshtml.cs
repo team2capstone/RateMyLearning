@@ -87,7 +87,7 @@ namespace RateMyLearning.Pages.Reviews {
 
             // user not signed in
             if (currentSignedInUser == null) {
-                ErrorNotSignedIn = "Please <a href='/Account/SignIn'>sign in</a> to create a review.";
+                ErrorNotSignedIn = "Please <a asp-page='/Account/Register'>sign in</a> to create a review.";
                 return Page();
             }
 
