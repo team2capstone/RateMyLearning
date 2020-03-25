@@ -21,6 +21,7 @@ namespace RateMyLearning {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
+            services.AddSession();
             services.AddTransient<ISchoolService, SchoolService>();
             services.AddRazorPages();
             services.AddDbContext<rmldbContext>(options =>
@@ -35,6 +36,7 @@ namespace RateMyLearning {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -52,14 +52,16 @@
                         <span asp-validation-for="Users.Email" class="text-danger"></span>
 
                         <!-- Password -->
-                        <input asp-for="Users.Password" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                        <input asp-for="Users.Password" type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                         <span asp-validation-for="Users.Password" class="text-danger"></span>
 
                         <!-- Account Type -->
-                        <p class="h4 mb-4">You Are:</p>
-                        <label class="radio-inline"><input type="radio" value="Student" id="Student" name="UserType">Student</label>
-                        <label class="radio-inline"><input type="radio" value="Faculty" id="Faculty" name="UserType">Faculty Member</label>
-                        <label class="radio-inline"><input type="radio" value="Neither" id="Neither" name="UserType" checked>Neither</label>
+                        <select class="form-control" id="UserType" name="UserType">
+                            <option value="none" selected disabled hidden>You are currently a...</option>
+                            <option value="Student">Student</option>
+                            <option value="Faculty">Faculty Member</option>
+                            <option value="Neither">Neither</option>
+                        </select>
 
                         <!-- Sign up button -->
                         <button class="btn btn-info my-4 btn-block" type="submit">Register</button>

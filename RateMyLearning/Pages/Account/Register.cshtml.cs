@@ -29,7 +29,7 @@ namespace RateMyLearning.Pages.Account {
 
             Users.Password = BCrypt.Net.BCrypt.HashPassword(Users.Password);
 
-            // check for the current enrollment status of the user
+            // check for the current enrollment status of the new user
             if (Request.Form["UserType"] == "Student") {
                 Users.TypeId = 1;
             }
@@ -47,7 +47,7 @@ namespace RateMyLearning.Pages.Account {
                 TypeId = Users.TypeId
             });
             await _context.SaveChangesAsync();
-            return RedirectToPage("./SignIn");
+            return RedirectToPage("/Index");
         }
     }
 }

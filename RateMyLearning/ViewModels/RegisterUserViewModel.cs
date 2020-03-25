@@ -10,7 +10,6 @@ namespace RateMyLearning.ViewModels {
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Please provide a valid last name.")]
         public string LastName { get; set; }
-        []
         [Required(ErrorMessage = "Please provide a valid password.")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Password must be atleast 8 characters long.")]
         public string Password { get; set; }
