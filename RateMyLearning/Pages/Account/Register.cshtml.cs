@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RateMyLearning.Data.Models;
@@ -46,6 +47,11 @@ namespace RateMyLearning.Pages.Account {
                 TypeId = Users.TypeId
             });
             await _context.SaveChangesAsync();
+
+            // log in user and setup a session
+            HttpContext.Session.Clear();
+            HttpContext.Session.Remove("_email");
+            HttpContext.Session.SetString("_email", Users.Email);
             return RedirectToPage("/Index");
         }
     }

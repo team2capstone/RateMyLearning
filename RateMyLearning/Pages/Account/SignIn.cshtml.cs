@@ -30,6 +30,7 @@ namespace RateMyLearning.Pages.Account {
             var user = Login(Users.Email, Users.Password);
             if (user != null) {
                 HttpContext.Session.Clear();
+                HttpContext.Session.Remove("_email");
                 HttpContext.Session.SetString("_email", Users.Email);
                 return RedirectToPage("/Index");
             }
