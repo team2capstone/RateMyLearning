@@ -2,9 +2,10 @@
 
 @model RateMyLearning.Pages.Reviews.EditModel
 @{
-    Layout = "_Layout";
-}
-@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
     ViewData["Title"] = "Edit review";
 }
 

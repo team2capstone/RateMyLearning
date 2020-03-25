@@ -1,9 +1,10 @@
 ﻿@page
 @model RateMyLearning.Pages.IndexModel
 @{
-    Layout = "_Layout";
-}
-@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
     ViewData["Title"] = "Home Page";
 }
 
