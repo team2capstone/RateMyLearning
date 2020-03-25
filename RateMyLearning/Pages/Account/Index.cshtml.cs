@@ -10,5 +10,15 @@ namespace RateMyLearning.Pages.Account {
         public void OnGet() {
 
         }
+
+        public IActionResult OnGetSignOut() {
+            HttpContext.Session.Remove("_email");
+            return RedirectToPage("/Index");
+        }
+
+        public IActionResult OnPost() {
+            HttpContext.Session.Remove("_email");
+            return RedirectToPage("/Index");
+        }
     }
 }

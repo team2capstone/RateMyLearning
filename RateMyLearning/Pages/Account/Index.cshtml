@@ -1,3 +1,23 @@
 ﻿@page
 @model RateMyLearning.Pages.Account.IndexModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "Profile";
+}
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-body">
+                    <form method="post">
+                        <button type="submit">Sign Out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
