@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -19,6 +20,7 @@ namespace RateMyLearning.Pages.Reviews {
         public Review Review { get; set; }
         public ReviewViewModel ReviewData { get; set; }
         public SelectList Schools { get; set; }
+        public string ErrorNotSignedIn { get; set; }
 
         public IndexModel(ISchoolService schoolService, rmldbContext context) {
             _schoolService = schoolService;
@@ -30,14 +32,21 @@ namespace RateMyLearning.Pages.Reviews {
             Schools = new SelectList(_context.School,
                 "Id", "Name");
 
-            // retrieve all of the users reviews
+            var currentSignedInUser = _schoolService.GetSignedInUserDetails(HttpContext);
+
+            // user not signed in
+            if (currentSignedInUser == null) {
+                return Page();
+            }
+
+            // get all of the reviews they have made
             ReviewData = new ReviewViewModel();
             ReviewData.Reviews = await _context.Review
                 .Include(x => x.Program)
                 .Include(x => x.Course)
                 .Include(x => x.Users)
                 .Include(x => x.Users.Type)
-                .Where(x => x.UsersId == 1)
+                .Where(x => x.UsersId == currentSignedInUser.Id)
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
             return Page();
@@ -75,6 +84,13 @@ namespace RateMyLearning.Pages.Reviews {
                 return Page();
             }
 
+            var currentSignedInUser = _schoolService.GetSignedInUserDetails(HttpContext);
+
+            if (currentSignedInUser == null) {
+                ErrorNotSignedIn = "Please <a href='/Account/SignIn'>sign in</a> to create a review.";
+                return Page();
+            }
+
             // insert review
             _context.Review.Add(new Review {
                 Description = Review.Description,
@@ -84,7 +100,7 @@ namespace RateMyLearning.Pages.Reviews {
                 InterestId = 1,
                 CampusId = 1,
                 Rating = Convert.ToDecimal(Request.Form["rating"]),
-                UsersId = 1
+                UsersId = currentSignedInUser.Id
             });
             await _context.SaveChangesAsync();
             return RedirectToPage("./Index");

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using RateMyLearning.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace RateMyLearning.Services {
         IEnumerable<Course> GetElectives();
         IEnumerable<RateMyLearning.Data.Models.Program> GetContinuingEducationPrograms();
         IEnumerable<Course> GetContinuingEducationCourses(long? programId);
+        Users GetSignedInUserDetails(HttpContext currentSession);
     }
 
     public class SchoolService : ISchoolService {
@@ -79,6 +81,17 @@ namespace RateMyLearning.Services {
                 .Where(s => s.ProgramId == programId)
                 .ToList();
             return continuingEducationCourses;
+        }
+
+        /// <summary>
+        /// Find the user account details in relation to the current sessions signed in user.
+        /// </summary>
+        /// <param name="currentSession">currentSession</param>
+        /// <returns>List<Course></returns>
+        public Users GetSignedInUserDetails(HttpContext currentSession) {
+            var signedInUser = _context.Users.SingleOrDefault(a => a.Email.Equals(
+                currentSession.Session.GetString("_email")));
+            return signedInUser;
         }
     }
 }

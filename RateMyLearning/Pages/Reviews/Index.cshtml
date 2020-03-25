@@ -42,7 +42,7 @@
                 <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="programs-courses-tab">
                     <form method="post">
                         <!--TODO: If we have time, find way to use textboxes instead of lists so users can
-                        create a review for a program that is not listed-->
+    create a review for a program that is not listed-->
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="">
                             <div class="row">
@@ -97,6 +97,7 @@
                         <div class="col mb-3">
                             <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
+                        <p class="col mb-3 text-danger">@Html.Raw(Model.ErrorNotSignedIn)</p>
                     </form>
                 </div>
                 <!--tab for electives-->
@@ -220,45 +221,40 @@
             <div class="card-body ml-5 mr-5">
                 <div class="row">
                     <div class="col-sm-12">
-                        @foreach (var item in Model.ReviewData.Reviews)
-                        {
-                            <p>
-                                <a class="float-left"><strong>@item.Program.Name</strong></a>
-                                @{ string rating = "";
-                                    for (var i = 0; i < 5; i++)
-                                    {
-                                        if (i < item.Rating)
-                                        {
-                                            if (item.Rating % 1 > 0)
-                                            {
-                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
-                                            }
-                                            else
-                                            {
-                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                        @if (!(Model.ReviewData is null)) {
+                            foreach (var item in Model.ReviewData.Reviews) {
+                                <p>
+                                    <a class="float-left"><strong>@item.Program.Name</strong></a>
+                                    @{ string rating = "";
+                                        for (var i = 0; i < 5; i++) {
+                                            if (i < item.Rating) {
+                                                if (item.Rating % 1 > 0) {
+                                                    rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                                }
+                                                else {
+                                                    rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                                }
                                             }
                                         }
+                                        @Html.Raw(rating);
+                                        <br />
+                                        <a class="float-left"><strong>@item.Course.Name</strong></a>
                                     }
-                                    @Html.Raw(rating);
-                                    <br />
-                                    <a class="float-left"><strong>@item.Course.Name</strong></a>
+                                </p>
+                                <div class="clearfix"></div>
+                                <p class="float-left">@item.Description</p>
+                                @if (item.Users.TypeId == 1) {
+                                    <p class="text-right">Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
                                 }
-                            </p>
-                            <div class="clearfix"></div>
-                            <p class="float-left">@item.Description</p>
-                            @if (item.Users.TypeId == 1)
-                            {
-                                <p class="text-right">Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                                else if (item.Users.TypeId == 2) {
+                                    <p class="text-right">Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                                }
+                                <div>
+                                    <a class="text-left" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                                    <a class="text-left" asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
+                                </div>
+                                <hr />
                             }
-                            else if (item.Users.TypeId == 2)
-                            {
-                                <p class="text-right">Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
-                            }
-                            <div>
-                                <a class="text-left" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
-                                <a class="text-left" asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
-                            </div>
-                            <hr/>
                         }
                     </div>
                 </div>
