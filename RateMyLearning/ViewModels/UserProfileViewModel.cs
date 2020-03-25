@@ -12,7 +12,7 @@ namespace RateMyLearning.ViewModels {
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please provide a valid email address.")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
         public string Email { get; set; }
         public long? StudentId { get; set; }
         public long? EmployeeId { get; set; }

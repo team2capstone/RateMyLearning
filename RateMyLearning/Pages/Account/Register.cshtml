@@ -31,23 +31,28 @@
                             <div class="col">
                                 <!-- First name -->
                                 <input asp-for="Users.FirstName" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-                                <span asp-validation-for="Users.FirstName" class="text-danger"></span>
+                                <span asp-validation-for="Users.FirstName" class="text-danger fa-pull-left"></span>
                             </div>
                             <div class="col">
                                 <!-- Last name -->
                                 <input asp-for="Users.LastName" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-                                <span asp-validation-for="Users.LastName" class="text-danger"></span>
+                                <span asp-validation-for="Users.LastName" class="text-danger fa-pull-left"></span>
                             </div>
                         </div>
-
                         <!-- E-mail -->
-                        <input asp-for="Users.Email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-                        <span asp-validation-for="Users.Email" class="text-danger"></span>
-
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input asp-for="Users.Email" type="email" id="defaultRegisterFormEmail" class="form-control" placeholder="E-mail">
+                                <span asp-validation-for="Users.Email" class="text-danger fa-pull-left"></span>
+                            </div>
+                        </div>
                         <!-- Password -->
-                        <input asp-for="Users.Password" type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                        <span asp-validation-for="Users.Password" class="text-danger"></span>
-
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input asp-for="Users.Password" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                <span asp-validation-for="Users.Password" class="text-danger fa-pull-left"></span>
+                            </div>
+                        </div>
                         <!-- Account Type -->
                         <select class="form-control" id="UserType" name="UserType">
                             <option value="none" selected disabled hidden>You are currently a...</option>

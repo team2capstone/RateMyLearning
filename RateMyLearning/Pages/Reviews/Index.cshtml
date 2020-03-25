@@ -99,7 +99,7 @@
                             <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                         @if (!(Model.ErrorNotSignedIn is null)) {
-                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
                         }
                     </form>
                 </div>
@@ -155,7 +155,7 @@
                             <button asp-page-handler="Elective" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                         @if (!(Model.ErrorNotSignedIn is null)) {
-                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
                         }
                     </form>
                 </div>
@@ -217,7 +217,7 @@
                             <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
                         </div>
                         @if (!(Model.ErrorNotSignedIn is null)) {
-                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/Register">sign in</a> to create a review.</p>
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
                         }
                     </form>
                 </div>
