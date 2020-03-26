@@ -15,7 +15,7 @@ namespace RateMyLearning.ViewModels {
         public string Password { get; set; }
         [Required(ErrorMessage = "Please provide a valid email address.")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
         public string Email { get; set; }
         [Required]
         public long TypeId { get; set; }
