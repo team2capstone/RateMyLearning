@@ -19,6 +19,7 @@ namespace RateMyLearning.Pages {
         public ReviewViewModel ReviewData { get; set; }
 
         public async Task OnGet() {
+            //DateTime currentDate = DateTime.UtcNow.Date.AddDays(-7);
             ReviewData = new ReviewViewModel();
             ReviewData.Reviews = await _context.Review
                 .Include(x => x.Program)
@@ -27,6 +28,14 @@ namespace RateMyLearning.Pages {
                 .Include(x => x.Users.Type)
                 .OrderByDescending(x => x.CreatedOn)
                 .ToListAsync();
+        }
+
+        public IActionResult OnPostProgramsCourses() {
+            return RedirectToPage("/Reviews/Browse");
+        }
+
+        public IActionResult OnPostElectives() {
+            return RedirectToPage("/Reviews/Browse");
         }
     }
 }

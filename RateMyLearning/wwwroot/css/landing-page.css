@@ -53,11 +53,11 @@ header.masthead h1 {
   }
 }
 .call-to-action {
-  position: relative;
-  background:url("../img/laptop.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+    position: relative;
+    background:url("../img/laptop.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
     .call-to-action .overlay {

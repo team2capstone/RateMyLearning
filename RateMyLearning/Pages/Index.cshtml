@@ -185,14 +185,16 @@
             </div>
             <div class="col border border-secondary mt-5 mb-2">
                 <!--Side col for 'Electives'-->
-                <h3 class="text-center mt-2" style="font-family:'Agency FB'">Browse Courses & Electives</h3>
+                <h3 class="text-center mt-2" style="font-family:'Agency FB'">Browse by Program or Course</h3>
                 
-                <div class="btn-group mt-3 mb-3 btn-block">
-                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Electives</button>
-                </div>
-                <div class="btn-group mb-3 btn-block">
-                    <button class="btn mr-1 text-white" type="button" data-toggle="modal" data-target="#listviewModal">Continuing Education</button>
-                </div>
+                <form method="post">
+                    <div class="btn-group mt-3 mb-3 btn-block">
+                        <button asp-page-handler="ProgramsCourses" class="btn mr-1 text-white" type="submit" data-toggle="modal" data-target="#listviewModal" id="indexProgramsCourses">Programs & Courses</button>
+                    </div>
+                    <div class="btn-group mb-3 btn-block">
+                        <button asp-page-handler="Electives" class="btn mr-1 text-white" type="submit" data-toggle="modal" data-target="#listviewModal" id="indexElectives">Electives</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
