@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace RateMyLearning.Tests {
+namespace RateMyLearning.Tests {    
     public class ReviewsControllerTests : IDisposable {
         protected readonly rmldbContext _context;
 
@@ -27,17 +27,6 @@ namespace RateMyLearning.Tests {
 
             _context = new rmldbContext(options);
             _context.Database.EnsureCreated();
-
-            var reviews = new[] {
-                new Review { Id = 1, Description = "Test1", ProgramId = 2, CourseId = 3, 
-                    SchoolId = 1, Rating = 5, CampusId = 1, InterestId = 3, UsersId = 1},
-                new Review { Id = 2, Description = "Test2", ProgramId = 2, CourseId = 3,
-                    SchoolId = 1, Rating = 5, CampusId = 1, InterestId = 3, UsersId = 2},
-                new Review { Id = 3, Description = "Test3", ProgramId = 2, CourseId = 3,
-                    SchoolId = 1, Rating = 5, CampusId = 1, InterestId = 3, UsersId = 3},
-            };
-            _context.Review.AddRange(reviews);
-            _context.SaveChanges();
         }
 
         [Fact]

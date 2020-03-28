@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RateMyLearning</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetPrograms" -->
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetCourses(System.Int64)" -->
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetElectives" -->
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetContinuingEducationPrograms" -->
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetContinuingEducationCourses(System.Nullable{System.Int64})" -->
+        <!-- Badly formed XML comment ignored for member "M:RateMyLearning.Services.SchoolService.GetSignedInUserDetails(Microsoft.AspNetCore.Http.HttpContext)" -->
+    </members>
+</doc>
