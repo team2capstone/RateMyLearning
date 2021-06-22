@@ -1,0 +1,80 @@
+﻿@page "/signin"
+@model RateMyLearning.Pages.Account.SignInModel
+@{
+    ViewData["Title"] = "Sign in";
+    Layout = "_Layout";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+    <header class="bg-image">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-12 text-block">
+                    <div class="row">
+                        <div class="col">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="container-fluid">
+    <div class="row no-gutter">
+
+        <div class="col-md-12">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">                            
+                            <!-- Default form login -->
+                            <form class="text-center border border-light p-5" method="post">
+                                <p class="h4 mb-4">Sign In</p>
+
+                                <!-- Email -->
+                                <input asp-for="Users.Email" type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+                                <!-- Password -->
+                                <input asp-for="Users.Password" type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+                                <p class="text-danger">@Model.ErrorInvalidLogin</p>
+
+                                <div class="d-flex justify-content-around">
+                                    <div>
+                                        <!-- Remember me -->
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                                            <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <!-- Forgot password -->
+                                        <a href="">Forgot password?</a>
+                                    </div>
+                                </div>
+                                <!-- Sign in button -->
+                                <button class="btn btn-info btn-block my-4" type="submit">Sign In</button>
+
+                                <!-- Register -->
+                                <p>
+                                    Not a member?
+                                    <a asp-page="/Account/Register">Register</a>
+                                </p>
+
+                                <!-- Social login -->
+                                <p>or sign in with:</p>
+
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                                <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+                            </form>
+                            <!-- Default form login -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

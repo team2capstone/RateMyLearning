@@ -1,0 +1,94 @@
+﻿@page
+@model RateMyLearning.Pages.PrivacyModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "About us";
+}
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <div class="intro-text">
+                            <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in">Our Mission</h1>
+                            <h2 class="h3 lead text-light mb-4 intro-heading" style="font-family:'Agency FB'">To provide an adequate feedback system about post secondary programs and courses for potential students</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--Lookup data availability-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-2" style="font-family:'Agency FB'">About</h1>
+                <p>
+                    Rate my learning is an educational rating tool that will help students learn more about the programs
+                    they want to enroll in as well as potential career paths associated with their area of interest
+                </p>
+                <p>
+                    Post-secondary education is an important milestone for anyone who has to opportunity to entroll. Deciding where you want to start your journey takes thourough thought, research and planning
+                    in order to make the best decision for yourself.
+                </p>
+                <p>
+                    Furthermore, Post-secondary education is important, as it improves the chances of better employment and opportunities. Schools are currently lacking a system that would
+                    allow recent and potential students to review or gather opinions regarding ongoing courses and programs. Similar to how Amazon has a review section for their products;
+                    <strong>RATE MY LEARNING </strong> is a website created that will allow users to share their honest opinions and about specific courses and/or
+                    overall program experience in which they were enrolled in. This promotes to future students whom are interested in registering at a College or University.
+                </p>
+                <p>
+                    Our goal is to educate and inform students on the type of courses they will be taking when choosing a program, but also to better the services schools provide.
+                    Currently, there isn’t really a good review system a lot of schools use that students are interested in. With the introduction of this website,
+                    students can anonymously (or use their real name if they wish) post what they think of the program/course
+                    and what can be improved. Schools are able to use this data for bettering their courses and services by creating a better educational atmosphere for students.
+                </p>
+                <hr />
+            </div>
+        </div>
+        <div class="team-section text-center dark-grey-text">
+            <h1 class="text-center mt-2" style="font-family:'Agency FB'">Meet our team</h1>
+            <!-- Grid row -->
+            <div class="row text-center">
+                <!-- Grid column -->
+                <div class="col-md-4 mb-4">
+                     <img class="img-fluid d-block mb-3 mx-auto" alt="Card image cap" width="200" src="~/img/CO.png">
+                        <h4> <b>Catherine Olejarczyk</b> </h4>
+                        <p class="mb-0">FRONT-END DEVELOPER</p>
+                        <div class="social">
+                            <a href="#" class="linkedin" data-abc="true"><i class="fab fa-linkedin"></i></a> <a href="#" class="github" data-abc="true"><i class="fab fa-github"></i></a>
+                     </div>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 mb-4">
+                        <img class="img-fluid d-block mb-3 mx-auto" alt="Card image cap" width="200" src="~/img/MR.png">
+                        <h4> <b>Marcus Rodrigues</b> </h4>
+                        <p class="mb-0">BACK-END DEVELOPER</p><p>TEAM LEADER</p>
+                        <div class="social">
+                            <a href="#" class="linkedin" data-abc="true"><i class="fab fa-linkedin"></i></a> <a href="#" class="github" data-abc="true"><i class="fab fa-github"></i></a>
+                        </div>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 mb-4">
+                    <img class="img-fluid d-block mb-3 mx-auto" alt="Card image cap" width="200" src="~/img/FK.png">
+                    <h4> <b>Fatima Kharodia</b> </h4>
+                    <p class="mb-0"> FRONT-END DEVELOPER</p>
+                    <div class="social">
+                        <a href="#" class="linkedin" data-abc="true"><i class="fab fa-linkedin"></i></a> <a href="#" class="github" data-abc="true"><i class="fab fa-github"></i></a>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+        </div>
+    </div>
+</section>
+

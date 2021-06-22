@@ -1,0 +1,28 @@
+﻿@model RateMyLearning.Data.Models.Review
+<p>
+    <a class="float-left"><strong>@Model.Program.Name</strong></a>
+    @{ string rating = "";
+        for (var i = 0; i < 5; i++) {
+            if (i < @Model.Rating) {
+                if (@Model.Rating % 1 > 0) {
+                    rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                }
+                else {
+                    rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                }
+            }
+        }
+        @Html.Raw(rating);
+        <br />
+        <a class="float-left"><strong>@Model.Course.Name</strong></a>
+    }
+</p>
+<div class="clearfix"></div>
+<p class="float-left">@Model.Description</p>
+@if (Model.Users.TypeId == 1) {
+    <p class="text-right">Student<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
+}
+else if (Model.Users.TypeId == 2) {
+    <p class="text-right">Faculty<br />@Model.CreatedOn.ToString("dd MMM yyyy")</p>
+}
+<hr/>

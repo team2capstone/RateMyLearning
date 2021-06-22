@@ -1,0 +1,121 @@
+﻿@page "/browse"
+@model RateMyLearning.Pages.Reviews.BrowseModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "Browse reviews";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Browse reviews</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--Filter reviews-->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <ul class="nav nav-tabs" id="browseReviewsTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="programs-courses-tab" data-toggle="tab" href="#programs-courses" role="tab" aria-controls="programs-courses" aria-selected="true">Programs & Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="electives-tab" data-toggle="tab" href="#electives" role="tab" aria-controls="electives" aria-selected="false">Electives</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="programs-courses-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="f-pc-school" name="f-pc-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="f-pc-program" name="f-pc-program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="f-pc-course" name="f-pc-course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="ProgramsCourses" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="electives" role="tabpanel" aria-labelledby="electives-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="f-e-school" name="f-e-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="f-e-course" name="f-e-course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="Electives" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body ml-5 mr-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    @if (!(Model.ReviewData is null))
+                    {
+                        foreach (var item in Model.ReviewData.Reviews)
+                        {
+                            @await Html.PartialAsync("_BrowseResults", item);
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/filter-reviews.js" type="text/javascript"></script>
+}
+
+

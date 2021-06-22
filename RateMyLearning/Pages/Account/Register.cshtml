@@ -1,0 +1,92 @@
+﻿@page "/register"
+@model RateMyLearning.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="bg-image">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-body">
+                    <!-- Default form register -->
+                    <form class="text-center border border-light p-5" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <p class="h4 mb-4">Register</p>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- First name -->
+                                <input asp-for="Users.FirstName" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                                <span asp-validation-for="Users.FirstName" class="text-danger fa-pull-left"></span>
+                            </div>
+                            <div class="col">
+                                <!-- Last name -->
+                                <input asp-for="Users.LastName" type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                                <span asp-validation-for="Users.LastName" class="text-danger fa-pull-left"></span>
+                            </div>
+                        </div>
+                        <!-- E-mail -->
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input asp-for="Users.Email" type="email" id="defaultRegisterFormEmail" class="form-control" placeholder="E-mail">
+                                <span asp-validation-for="Users.Email" class="text-danger fa-pull-left"></span>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input asp-for="Users.Password" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                <span asp-validation-for="Users.Password" class="text-danger fa-pull-left"></span>
+                            </div>
+                        </div>
+                        <!-- Account Type -->
+                        <select class="form-control" id="UserType" name="UserType">
+                            <option value="none" selected disabled hidden>You are currently a...</option>
+                            <option value="Student">Student</option>
+                            <option value="Faculty">Faculty Member</option>
+                            <option value="Neither">Neither</option>
+                        </select>
+
+                        <!-- Sign up button -->
+                        <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+
+                        <!-- Social register -->
+                        <p>or sign up with:</p>
+
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+                        <hr>
+
+                        <!-- Terms of service -->
+                        <p>
+                            By clicking
+                            <em>Sign Up</em> you agree to our
+                            <a href="" target="_blank">terms of service</a>
+
+                    </form>
+                    <!-- Default form register -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

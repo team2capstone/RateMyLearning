@@ -1,0 +1,111 @@
+﻿@page "/reviews/edit"
+
+@model RateMyLearning.Pages.Reviews.EditModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "Edit review";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Edit your review</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <nav class="border border-secondary">
+                <div class="nav nav-tabs nav-fill">
+                    <a class="h3 nav-item text-uppercase text-white" style="font-family:'Agency FB'">Edit review</a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Review.Id" />
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.School.Name" class="control-label"></label>
+                                    <input asp-for="Review.School.Name" class="form-control" disabled />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.Program.Name" class="control-label"></label>
+                                    <input asp-for="Review.Program.Name" class="form-control" disabled />
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.Course.Name" class="control-label"></label>
+                                    <input asp-for="Review.Course.Name" class="form-control" disabled />
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger"></span></label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="star-rating">
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="text" id="rating" name="rating" class="rating-value" value="0" hidden>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <input class="form-control" id="departament" name="departament" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="campus" name="campus" type="hidden">
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <input class="form-control" id="type" name="type" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white float-right" style="font-family:'Agency FB';background-color:#5ebd5c">Save</button>
+                            <button type="submit" class="btn btn-lg mr-2 text-uppercase text-white float-right" style="font-family:'Agency FB';background-color:#c34a4a" asp-route-id="@Model.Review.Id" asp-page-handler="Delete">Delete</button>
+                            <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'" asp-page-handler="Cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

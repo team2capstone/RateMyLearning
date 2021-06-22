@@ -1,0 +1,75 @@
+﻿@page "/account/profile"
+@model RateMyLearning.Pages.Account.IndexModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "Profile";
+}
+
+<header class="bg-image">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-body">
+                    <form class="text-center border border-light p-5" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserData.Id" />
+                        <p class="h4 mb-4">My Profile</p>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- First name -->
+                                <input asp-for="UserData.FirstName" type="text" id="editProfileFormFirstName" class="form-control" placeholder="First name" disabled>
+                            </div>
+                            <div class="col">
+                                <!-- Last name -->
+                                <input asp-for="UserData.LastName" type="text" id="editProfileFormLastName" class="form-control" placeholder="Last name" disabled>
+                            </div>
+                        </div>
+                        <!-- E-mail -->
+                        <div class="form-row mb-4 pr-0 pl-1 w-100">
+                            <input asp-for="UserData.Email" type="email" id="editProfileFormEmail" class="form-control" placeholder="E-mail" disabled>
+                            <span asp-validation-for="UserData.Email" class="text-danger fa-pull-left"></span>
+                        </div>
+                        <!-- Student/Faculty Numbers -->
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- Student Number -->
+                                <input asp-for="UserData.StudentId" type="text" id="editProfileFormStudentNumber" class="form-control" placeholder="Student number" disabled>
+                            </div>
+                            <div class="col">
+                                <!-- Faculty Number -->
+                                <input asp-for="UserData.EmployeeId" type="text" id="editProfileFormFacultyNumber" class="form-control" placeholder="Faculty number" disabled>
+                            </div>
+                        </div>
+                        <div class="form-row mb-4" id="editProfileButtons">
+                            <div class="col">
+                                <button class="btn btn-info my-4 btn-block" type="button" id="editProfile">Edit Profile</button>
+                            </div>
+                            <div class="col" id="saveProfileButton">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/edit-profile.js" type="text/javascript"></script>
+}

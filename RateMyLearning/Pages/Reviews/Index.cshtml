@@ -1,0 +1,280 @@
+﻿@page "/create"
+@model RateMyLearning.Pages.Reviews.IndexModel
+@{
+    var x = HttpContext.Session.TryGetValue("_email", out byte[] result);
+    if (!(result is null)) {
+        Layout = "_LayoutUser";
+    }
+    ViewData["Title"] = "Create new review";
+}
+
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+    <div class="container">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-12 text-block">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="font-weight-light text-light mt-5 mr-8 intro-lead-in text-uppercase">Create your review</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--tab panels for review forms-->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-xl-12 ">
+            <ul class="nav nav-tabs" id="browseReviewsTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="programs-courses-tab" data-toggle="tab" href="#programs-courses" role="tab" aria-controls="programs-courses" aria-selected="true">Programs & Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="electives-tab" data-toggle="tab" href="#electives" role="tab" aria-controls="electives" aria-selected="false">Electives</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="continuing-education-tab" data-toggle="tab" href="#continuing-education" role="tab" aria-controls="continuing-education" aria-selected="false">Continuing Education Courses</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <!--tab for programs and courses-->
+                <div class="tab-pane fade show active" id="programs-courses" role="tabpanel" aria-labelledby="programs-courses-tab">
+                    <form method="post">
+                        <!--TODO: If we have time, find way to use textboxes instead of lists so users can
+                        create a review for a program that is not listed-->
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="school" name="school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="program" name="program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="course" name="course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger"></span></label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="star-rating">
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="text" id="rating" name="rating" class="rating-value" value="0" hidden>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
+                        </div>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
+                        }
+                    </form>
+                </div>
+                <!--tab for electives-->
+                <div class="tab-pane fade" id="electives" role="tabpanel" aria-labelledby="electives-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="elective-school" name="elective-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Elective:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="elective" name="elective" disabled>
+                                        <option value="none" selected disabled hidden>Select elective</option>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="star-rating">
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="text" id="elective_rating" name="elective_rating" class="rating-value" value="0" hidden>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="Elective" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
+                        </div>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
+                        }
+                    </form>
+                </div>
+                <!--tab for continuing education-->
+                <div class="tab-pane fade" id="continuing-education" role="tabpanel" aria-labelledby="continuing-education-tab">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col mb-4 ml-3 mr-3">
+                                    <label asp-for="Review.SchoolId" class="h4" style="font-family:'Agency FB'">School:</label>
+                                    <select asp-for="Review.SchoolId" class="form-control" id="continuing-education-school" name="continuing-education-school" asp-items="@Model.Schools">
+                                        <option value="none" selected disabled hidden>Select school</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.ProgramId" class="h4" style="font-family:'Agency FB'">Program:</label>
+                                    <select asp-for="Review.ProgramId" class="form-control" id="continuing-education-program" name="continuing-education-program" disabled>
+                                        <option value="none" selected disabled hidden>Select program</option>>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 ml-3">
+                                    <label asp-for="Review.CourseId" class="h4" style="font-family:'Agency FB'">Course:</label>
+                                    <select asp-for="Review.CourseId" class="form-control" id="continuing-education-course" name="continuing-education-course" disabled>
+                                        <option value="none" selected disabled hidden>Select course</option>
+                                    </select>
+                                </div>
+                                <div class="col mb-4 mr-3">
+                                    <label asp-for="Review.Rating" class="h4" style="font-family:'Agency FB'">Choose rating:<span class="text-danger">*</span></label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="star-rating">
+                                                    <span class="fa fa-star-o" data-rating="1"></span>
+                                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                                    <span class="fa fa-star-o" data-rating="5"></span>
+                                                    <input type="text" id="continuing_education_rating" name="continuing_education_rating" class="rating-value" value="0" hidden>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <label asp-for="Review.Description" class="h4" style="font-family:'Agency FB'">Description:</label>
+                            <p>
+                                How was your experience in the program and/or course you've completed?<br />What was your greatest achievment during your study period?
+                                Do you feel there's need for improvement? (500 characters)
+                            </p>
+                            <textarea asp-for="Review.Description" class="form-control"></textarea>
+                            <span asp-validation-for="Review.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col mb-3">
+                            <button asp-page-handler="ContinuingEducation" type="submit" class="btn btn-lg text-uppercase text-white" style="font-family:'Agency FB'">Post Review</button>
+                        </div>
+                        @if (!(Model.ErrorNotSignedIn is null)) {
+                            <p class="col mb-3 text-danger">Please <a asp-page="/Account/SignIn">sign in</a> to create a review.</p>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Container that shows all of the user's reviews-->
+    <h2 class="mt-3 text-center" style="font-family:'Agency FB'">Your Reviews</h2>
+    <div class="card mt-4">
+        <div class="card-body ml-5 mr-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    @if (!(Model.ReviewData is null)) {
+                        foreach (var item in Model.ReviewData.Reviews) {
+                            <p>
+                                <a class="float-left"><strong>@item.Program.Name</strong></a>
+                                @{ string rating = "";
+                                    for (var i = 0; i < 5; i++) {
+                                        if (i < item.Rating) {
+                                            if (item.Rating % 1 > 0) {
+                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star-half-o'></i></span>";
+                                            }
+                                            else {
+                                                rating += @"<span class='float-right'><i class='text-warning fa fa-star checked'></i></span>";
+                                            }
+                                        }
+                                    }
+                                    @Html.Raw(rating);
+                                    <br />
+                                    <a class="float-left"><strong>@item.Course.Name</strong></a>
+                                }
+                            </p>
+                            <div class="clearfix"></div>
+                            <p class="float-left">@item.Description</p>
+                            @if (item.Users.TypeId == 1) {
+                                <p class="text-right">Student<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                            }
+                            else if (item.Users.TypeId == 2) {
+                                <p class="text-right">Faculty<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                            }
+                            else {
+                                <p class="text-right">Guest<br />@item.CreatedOn.ToString("dd MMM yyyy")</p>
+                            }
+                            <div>
+                                <a class="text-left" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="text-left" asp-route-id="@item.Id" asp-page-handler="Delete">Delete</a>
+                            </div>
+                            <hr />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+
